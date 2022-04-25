@@ -1,0 +1,13 @@
+.nav-main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+.nav-btn {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    gap: 5px;
+}
