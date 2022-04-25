@@ -3,6 +3,7 @@
     flex-flow: row wrap;
     justify-content: center;
     gap: 50px;
+    margin-top: 20px;
 }
 
 .nav-btn {
@@ -10,4 +11,21 @@
     flex-flow: row wrap;
     justify-content: flex-end;
     gap: 5px;
+    margin-bottom: -15px;
+
 }
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.btn {
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.modal {
+    background-color: black;
+}
+
