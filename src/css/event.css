@@ -5,3 +5,29 @@
 .event-title {
     text-decoration: underline;
 }
+
+.event-start {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.event-add {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
+.add-btn {
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.event-frame {
+    /* border: 1px solid black; */
+    max-width: 800px;
+    margin: auto;
+}
+
+.event-bottom {
+    padding: 10px;
+}

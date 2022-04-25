@@ -3,12 +3,15 @@ import '../css/event.css'
 
 const EventMain = () => {
     return (
-        <div>
+        <div className='event-frame'>
         <Card>
         <Card.Img variant="top" src="" />
         <Card.Body>
           <Card.Text>
               <div className='event-start'>
+             <div className='event-add'>
+              <button className='add-btn'> + </button>
+             </div>
             <p> Title of Event:</p>
             <p> Address: </p>
             <p> Date/Time: </p>
@@ -24,14 +27,16 @@ const EventMain = () => {
           </Card.Text>
         </Card.Body>
       </Card>
-        
+        <div className='event-bottom'>
+
         <h5 className='event-title'>Event Settings</h5>
-        <div>
+        
 
        <a href=''>RSVP Details</a> <br/>
        <a href=''>Item Details</a> <br/>
        <a href=''>View My Profile</a> <br/>
         </div>
+        
 
      
       </div>
