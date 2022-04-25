@@ -4,20 +4,21 @@ import Button from "react-bootstrap/Button";
 
 
 const EventChat = (props) => {
-    const [comment, setComment] = useState({
-        value: "",
-        show: ""
-    });
+  const [comment, setComment] = useState({
+    value: "",
+    show: ""
+});
 
 
-    const handleChange = (e) => {
-        setComment({value: e.target.value})
-    }
+const handleChange = (e) => {
+    setComment({value: e.target.value})
+}
 
-    const submit = (e) => {
-        e.preventDefault();
-        setComment({show: comment.value});
-    }
+const submit = (e) => {
+    e.preventDefault();
+    setComment({show: comment.value});
+}
+
   return (
     <div>
       <Modal
