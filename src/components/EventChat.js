@@ -4,20 +4,18 @@ import Button from "react-bootstrap/Button";
 
 
 const EventChat = (props) => {
-  const [comment, setComment] = useState({
-    value: "",
-    show: ""
-});
+  const [comment, setComment] = useState([]);
+  const [input, setInput] = useState('')
 
+  const handleInput = (e) => {
+    setInput(e.target.value)
+  }
 
-const handleChange = (e) => {
-    setComment({value: e.target.value})
-}
-
-const submit = (e) => {
-    e.preventDefault();
-    setComment({show: comment.value});
-}
+  const inputSubmitHandler = (e) => {
+    setComment(input)
+    console.log(comment)
+    setInput('')
+  }
 
   return (
     <div>
@@ -35,24 +33,21 @@ const submit = (e) => {
         </Modal.Header>
         <Modal.Body>
           <p>
-           {comment.show}
+           {comment}
           </p>
         </Modal.Body>
         {/* <Modal.Footer> */}
           <div className="comment">
-            <form onSubmit={submit}>
-              <label>
+            
                 <input
-                value={comment.value}
-                onChange={(e) => handleChange(e)}
+                value = {input}
+                onChange={handleInput}
                 className="comment-input"
                   type="text"
                   name="chat"
                   placeholder="Add your comment..."
                 />
-              </label>
-            <input className="comment-btn" type="submit" value="Submit"/>
-            </form>
+            <button onClick={inputSubmitHandler} className="comment-btn">Add </button>
           </div>
         {/* </Modal.Footer> */}
       </Modal>
