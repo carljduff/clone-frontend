@@ -31,3 +31,17 @@
 .event-bottom {
     padding: 10px;
 }
+
+.comment  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-input, .comment-btn {
+    border-radius: 10px;
+    gap: 20px;
+}
+

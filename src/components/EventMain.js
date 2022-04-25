@@ -1,7 +1,14 @@
 import Card from 'react-bootstrap/Card'
 import '../css/event.css'
+import EventChat from "../components/EventChat";
+import Button from 'react-bootstrap/Button';
+import React from 'react';
+
 
 const EventMain = () => {
+
+  const [modalShow, setModalShow] = React.useState(false);
+
     return (
         <div className='event-frame'>
         <Card>
@@ -10,7 +17,9 @@ const EventMain = () => {
           <Card.Text>
               <div className='event-start'>
              <div className='event-add'>
-              <button className='add-btn'> + </button>
+             <Button variant="primary" onClick={() => setModalShow(true)}>
+          +
+        </Button>
              </div>
             <p> Title of Event:</p>
             <p> Address: </p>
@@ -38,7 +47,12 @@ const EventMain = () => {
         </div>
         
 
-     
+       
+  
+        <EventChat
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
       </div>
     )
 }
