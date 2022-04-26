@@ -1,6 +1,9 @@
 
 import '../css/navbar.css'
+
 const NavBar = () => {
+
+
     return (
    
         <div className="nav-main">
@@ -11,10 +14,10 @@ const NavBar = () => {
             <a href="">Blog</a>
 
             <div className='nav-btn'>
-            <button className='btn'>Log in</button>
+            <button href="../pages/Login" className='btn'>Log in</button>
             <button className='btn'>Sign Up</button>
+            
             </div>
-    
     </div>
     )
 }
