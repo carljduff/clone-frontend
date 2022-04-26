@@ -45,3 +45,8 @@
     gap: 20px;
 }
 
+.event-form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
