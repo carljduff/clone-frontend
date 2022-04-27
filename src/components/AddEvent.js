@@ -13,7 +13,7 @@ const EventForm = () => {
         end_time: '',
         isPublic: false,
         status: 1,
-        guests: 6
+        // guests: null,
     });
 
     const handleChange = (e) => {
@@ -35,7 +35,7 @@ const EventForm = () => {
         eventFormData.append("end_time", formValue.end_time)
         eventFormData.append("isPublic", formValue.isPublic)
         eventFormData.append("status", formValue.status)
-        eventFormData.append("guests", formValue.guests)
+        // eventFormData.append("guests", formValue.guests)
 
 
         try {
@@ -51,68 +51,72 @@ const EventForm = () => {
     }
 
     return (
-    <form onSubmit={handleSubmit}>
-      <p>Login Form</p>
+    <form className='create-event' onSubmit={handleSubmit}>
+      
       <input
+        className='input-event-btn'
         name="owner"
         placeholder="Who you be?"
         value={formValue.owner}
         onChange={handleChange}
       />
       <input
+        className='input-event-btn'
         name="title"
-        placeholder="Type your Title Here"
+        placeholder="Type Title Here"
         value={formValue.title}
         onChange={handleChange}
       />
       <input
+        className='input-event-btn'
         name="description"
         placeholder="Tell us more"
         value={formValue.description}
         onChange={handleChange}
       />
       <input
+        className='input-event-btn'
         name="address"
         placeholder="Where is it?"
         value={formValue.address}
         onChange={handleChange}
       />
       <input
+        className='input-event-btn'
         name="date"
         placeholder="When is it?"
         value={formValue.date}
         onChange={handleChange}
       />
       <input
+        className='input-event-btn'
         name="start_time"
         placeholder="When does it start?"
         value={formValue.start_time}
         onChange={handleChange}
       />
       <input
+        className='input-event-btn'
         name="end_time"
         placeholder="When does it end?"
         value={formValue.end_time}
         onChange={handleChange}
       />
       <input
+        className='input-event-btn'
         name="isPublic"
         placeholder="Private Event or Public?"
         value={formValue.isPublic}
         onChange={handleChange}
       />
       <input
+        className='input-event-btn'
         name="status"
         placeholder="Event Status"
         value={formValue.status}
         onChange={handleChange}
       />
-      <input
-        name="guests"
-        placeholder="Who's coming?"
-        value={formValue.guests}
-        onChange={handleChange}
-      />
+      
       <button
         type="submit"
       >

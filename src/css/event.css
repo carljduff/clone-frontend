@@ -59,7 +59,7 @@
 
 } */
 
-.form-input {
+.form-input, .input-event-btn {
     border: 0;
     border-bottom: 1px solid black;
     background-color: #E6E6E4;
@@ -83,3 +83,14 @@ input:focus, textarea:focus, select:focus{
     align-items: center;
     gap: 5px;
 }
+
+.create-event {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-top: 30vh;
+    gap: 10px;
+}
+
