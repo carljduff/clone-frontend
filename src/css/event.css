@@ -72,13 +72,14 @@ input:focus, textarea:focus, select:focus{
 
 .container {
     border: 1px solid black;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
     max-width: 600px;
 }
 
 .form-info {
     margin-bottom: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }

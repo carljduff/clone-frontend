@@ -21,7 +21,7 @@ function App() {
            <a href="">About</a>
            <a href="">Blog</a>
            <Link to='/login'>Login</Link>
-           <Link to='/addevent'>Event</Link>
+           <Link to='/addevent'>Events</Link>
 
            <div className='nav-btn'>
            <button href="../pages/Login" className='btn'>Log in</button>
