@@ -2,8 +2,9 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { getData } from "../data";
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 import '../css/event.css'
-import EventPreview from "./EventPreview";
 
 
 const EventList = () => {
@@ -27,9 +28,23 @@ const EventList = () => {
 
 const Event = ({event}) => {
   return (
-    <div>
+    <div className="event-container">
+     
+
+      <Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src={event.img} />
+  <Card.Body>
+    <Card.Title>{event.title}</Card.Title> 
+    <Card.Text>
+      {event.date}
+      {event.start_time}
+      {event.end_time}
+
+    </Card.Text>
+    <Button variant="primary">View</Button>
+  </Card.Body>
+</Card>
       
-      <EventPreview event={event}/>
     </div>
   )
 }
