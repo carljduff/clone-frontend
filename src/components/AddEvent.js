@@ -24,45 +24,53 @@ const AddEvent = () => {
       console.log(event)
   }
   return (
-    <form className="event-form">
+    <div className="container">
+    {/* <form className="event-form">
       <label>
         Title:
-        <input type="text" value={event.title} onChange={handleChange} name="title" />
+        <input className="form-input" type="text" value={event.title} onChange={handleChange} name="title" />
       </label>
       <label>
         Description:
-        <input type="text" value={event.description} onChange={handleChange} name="description" />
+        <input className="form-input" type="text" value={event.description} onChange={handleChange} name="description" />
       </label>
       <label>
         Address:
-        <input type="text" value={event.address} onChange={handleChange} name="address" />
+        <input className="form-input" type="text" value={event.address} onChange={handleChange} name="address" />
       </label>
       <label>
         Date:
-        <input type="text" value={event.date} onChange={handleChange} name="date" />
+        <input className="form-input" type="text" value={event.date} onChange={handleChange} name="date" />
       </label>
       <label>
         Start Time:
-        <input type="text" value={event.start_time} onChange={handleChange} name="start_time" />
+        <input className="form-input" type="text" value={event.start_time} onChange={handleChange} name="start_time" />
       </label>
       <label>
         End Time:
-        <input type="text" value={event.end_time} onChange={handleChange} name="end_time" />
+        <input className="form-input" type="text" value={event.end_time} onChange={handleChange} name="end_time" />
       </label>
       <label>
         Private?:
-        <input type="text" value={event.isPublic} onChange={handleChange} name="isPublic" />
+        <input className="form-input" type="text" value={event.isPublic} onChange={handleChange} name="isPublic" />
       </label>
       <label>
         Status:
-        <input type="text" value={event.status} onChange={handleChange} name="status" />
+        <input className="form-input" type="text" value={event.status} onChange={handleChange} name="status" />
       </label>
       <label>
         Guests:
-        <input type="text" value={event.guests} onChange={handleChange} name="guests" />
+        <input className="form-input" type="text" value={event.guests} onChange={handleChange} name="guests" />
       </label>
-      <input type="submit" value="Submit" />
-    </form>
+      <input className="form-input" type="submit" value="Submit" />
+    </form> */}
+  <div className="form-info">
+
+<h3>Create New</h3>
+    <input className="form-input" placeholder="Type Title Here"></input>
+  </div>
+  
+    </div>
   );
 };
 
