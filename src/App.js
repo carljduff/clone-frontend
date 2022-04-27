@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import girls from './images/girls.png'
-
+import EventForm from './components/AddEvent';
 import './css/navbar.css'
 function App() {
 
@@ -46,6 +46,8 @@ function App() {
 
 
 </div>
+
+<EventForm/>
 </>
   );
 }
