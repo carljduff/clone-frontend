@@ -11,8 +11,8 @@ import { Link } from 'react-router-dom'
 
 function LargeModal(props) {
   const [modalShow, setModalShow] = React.useState(false);
-  const [modalShowEdit, setModalShowEdit] = React.useState(false);
-    return (
+
+  return (
     <div className='modal'>
 
        
@@ -71,14 +71,11 @@ function LargeModal(props) {
             show={modalShow}
             onHide={() => setModalShow(false)}
           />
-          <EditEvent
-            show={modalShowEdit}
-            onHide={() => setModalShowEdit(false)}
-          />
+        
         </div>
         </Modal.Body>
         <Modal.Footer>
-        <Button onClick={() => setModalShowEdit(true)}>Edit</Button>
+        <Button>Edit</Button>
           <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>

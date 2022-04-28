@@ -7,10 +7,10 @@ import Button from 'react-bootstrap/Button'
 import '../css/event.css'
 import { Link } from "react-router-dom";
 import LargeModal from '../components/LargeModal'
-
+import Test from "./Test";
 const EventList = () => {
   const [events, setEvents] = useState([]); 
-  
+ 
   useEffect(() => {
       getData()
       .then((data) => {
@@ -18,9 +18,7 @@ const EventList = () => {
       })
   },[]);
   
-  const handleView = () => {
-    
-  }
+
   return(
     <div>
       {events.map(event => <Event key={event.id} event={event}/>)}
@@ -32,6 +30,7 @@ const EventList = () => {
 
 const Event = ({event}) => {
   const [modalShow, setModalShow] = React.useState(false);
+ 
   return (
     <div className="event-container">
      
@@ -49,6 +48,7 @@ const Event = ({event}) => {
     <Button onClick={() => setModalShow(true)} variant="primary">View</Button>
   </Card.Body>
 </Card>
+
 <LargeModal
   show={modalShow}
   onHide={() => setModalShow(false)}
@@ -63,6 +63,8 @@ const Event = ({event}) => {
   status={event.status}
 
   />
+  
+  
     </div>
   )
 }
