@@ -8,6 +8,7 @@ import '../css/event.css'
 import { Link } from "react-router-dom";
 import LargeModal from '../components/LargeModal'
 import Test from "./Test";
+import EditEvent from "./EditEvent";
 const EventList = () => {
   const [events, setEvents] = useState([]); 
  
@@ -61,10 +62,11 @@ const Event = ({event}) => {
   etime={event.end_time}
   private={event.isPublic}
   status={event.status}
-
   />
   
-  
+  <EditEvent
+  event={event}
+  />
     </div>
   )
 }

@@ -1,8 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import Modal from 'react-bootstrap/Modal'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
-const EventForm = () => {
+const EditEvent = (props) => {
+  const [modalShowEdit, setModalShowEdit] = React.useState(false);
 
     const[formValue, setFormValue] = useState({
         owner: 2,
@@ -22,6 +26,7 @@ const EventForm = () => {
             ...formValue,
             [e.target.name]: e.target.value
         });
+        console.log(props.id)
     }
 
     const handleSubmit = async(e) => {
@@ -42,7 +47,7 @@ const EventForm = () => {
         try {
             const response = await axios({
                 method: "PUT",
-                url: `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/${id}`,
+                url: `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/1/`, //needs {props.id}
                 data: eventFormData,
                 headers: { "Content-Type": "multipart/form-data" },
             });
@@ -53,7 +58,18 @@ const EventForm = () => {
 
     return (
   
-      
+      <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Modal heading
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
     <form className='create-event' onSubmit={handleSubmit}>
       
       <input
@@ -66,7 +82,7 @@ const EventForm = () => {
       <input
         className='input-event-btn'
         name="title"
-        placeholder='{props.title}'
+        placeholder={props.title}
         value={formValue.title}
         onChange={handleChange}
       />
@@ -127,10 +143,15 @@ const EventForm = () => {
       </button>
     </form>
         
-    
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
+        
 
 
 
-export default EventForm;
+export default EditEvent;
