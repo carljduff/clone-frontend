@@ -21,7 +21,7 @@ const EventMain = () => {
           +
         </Button>
              </div>
-            <p> Title of Event:</p>
+            <p> Title of Event: {event.title} </p>
             <p> Address: </p>
             <p> Date/Time: </p>
               </div>

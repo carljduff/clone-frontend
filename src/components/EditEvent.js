@@ -40,7 +40,7 @@ const EventForm = () => {
 
         try {
             const response = await axios({
-                method: "POST",
+                method: "PUT",
                 url: "https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/",
                 data: eventFormData,
                 headers: { "Content-Type": "multipart/form-data" },

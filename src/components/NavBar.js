@@ -1,23 +1,38 @@
-
+import { Link } from 'react-router-dom'
+import { useGlobalState } from '../context/GlobalState'
 import '../css/navbar.css'
 
 const NavBar = () => {
-
+    const [ state, dispatch ] = useGlobalState();
 
     return (
    
         <div className="nav-main">
            
 
-            <a href="">Pricing</a>
+            <a href="">Home</a>
             <a href="">About</a>
             <a href="">Blog</a>
 
-            <div className='nav-btn'>
-            <button href="../pages/Login" className='btn'>Log in</button>
-            <button className='btn'>Sign Up</button>
-            
-            </div>
+            <Link to='/eventlist'>Events</Link>
+           <div className='nav-btn'>
+               {
+                   !state.currentUser && (
+                    <Link to='/login'><button href="../pages/Login" className='btn'>Log in</button></Link>
+                   )
+               }
+               {
+                   !state.currentUser && (
+                    <Link to='/register'><button className='btn'>Sign Up</button></Link>
+                   )
+               }
+               {
+                   state.currentUser && (
+                    <Link to='/profile'>Profile</Link>
+                   )
+               }
+               <Link to='/addevent'>Add Event</Link>
+          </div>
     </div>
     )
 }

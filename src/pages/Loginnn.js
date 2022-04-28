@@ -1,13 +1,38 @@
 import Form from 'react-bootstrap/Form'
 import Button from "react-bootstrap/Button";
+import React, { useState } from 'react';
+import AuthService from '../services/auth.service';
+import { useNavigate } from 'react-router-dom';
+import { useGlobalState } from '../context/GlobalState';
+import jwtDecode from 'jwt-decode';
 import '../css/login.css'
 const Login = () => {
+  let navigate = useNavigate();
+  const [ state, dispatch ] = useGlobalState();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    AuthService
+      .login(username, password)
+      .then(async (resp) => {
+        let data = jwtDecode(resp.access)
+        await dispatch({
+          currentUserToken: resp.access,
+          currentUser: data
+        })
+       
+      });
+  }
+
     return(
         <div className='login-form'>
-            <Form>
+            <Form onSubmit={handleLogin}> 
   <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
+    <Form.Label>Username:</Form.Label>
+    <Form.Control onChange={(e) => setUsername(e.target.value)}  placeholder='Enter Username' />
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text>
@@ -15,7 +40,7 @@ const Login = () => {
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
+    <Form.Control onChange={(e) => setPassword(e.target.value)} required type="password" placeholder='Enter Password'/>
   </Form.Group>
  
   <div className='sign-btn-container'>
@@ -29,10 +54,11 @@ const Login = () => {
 </Form>
         </div>
 
-// {/* <AddEvent /> */}
+
 
 
     )
 }
 
 export default Login;
+
