@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card'
 import '../css/event.css'
-import EventChat from "../components/EventChat";
+import EventChat from "./EventChat";
 import Button from 'react-bootstrap/Button';
 import React from 'react';
 
@@ -21,7 +21,7 @@ const EventMain = () => {
           +
         </Button>
              </div>
-            <p> Title of Event: {event.title} </p>
+            <p> Title of Event: </p>
             <p> Address: </p>
             <p> Date/Time: </p>
               </div>

@@ -10,6 +10,7 @@ import LargeModal from '../components/LargeModal'
 
 const EventList = () => {
   const [events, setEvents] = useState([]); 
+  
   useEffect(() => {
       getData()
       .then((data) => {
@@ -54,6 +55,12 @@ const Event = ({event}) => {
   id={event.id} 
   title={event.title}
   desc={event.description}
+  address={event.address}
+  date={event.date}
+  stime={event.start_time}
+  etime={event.end_time}
+  private={event.isPublic}
+  status={event.status}
 
   />
     </div>

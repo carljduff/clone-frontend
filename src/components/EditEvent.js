@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const EventForm = () => {
+  
     const[formValue, setFormValue] = useState({
         owner: 2,
         title: '',
@@ -41,7 +42,7 @@ const EventForm = () => {
         try {
             const response = await axios({
                 method: "PUT",
-                url: "https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/",
+                url: `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/${id}`,
                 data: eventFormData,
                 headers: { "Content-Type": "multipart/form-data" },
             });
@@ -51,6 +52,18 @@ const EventForm = () => {
     }
 
     return (
+      <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Modal heading
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
     <form className='create-event' onSubmit={handleSubmit}>
       
       <input
@@ -63,56 +76,56 @@ const EventForm = () => {
       <input
         className='input-event-btn'
         name="title"
-        placeholder="Type Title Here"
+        placeholder='{props.title}'
         value={formValue.title}
         onChange={handleChange}
       />
       <input
         className='input-event-btn'
         name="description"
-        placeholder="Tell us more"
+        placeholder='{props.desc}'
         value={formValue.description}
         onChange={handleChange}
       />
       <input
         className='input-event-btn'
         name="address"
-        placeholder="Where is it?"
+        placeholder='{props.address}'
         value={formValue.address}
         onChange={handleChange}
       />
       <input
         className='input-event-btn'
         name="date"
-        placeholder="When is it?"
+        placeholder='{props.date}'
         value={formValue.date}
         onChange={handleChange}
       />
       <input
         className='input-event-btn'
         name="start_time"
-        placeholder="When does it start?"
+        placeholder='{props.stime}'
         value={formValue.start_time}
         onChange={handleChange}
       />
       <input
         className='input-event-btn'
         name="end_time"
-        placeholder="When does it end?"
+        placeholder=''
         value={formValue.end_time}
         onChange={handleChange}
       />
       <input
         className='input-event-btn'
         name="isPublic"
-        placeholder="Private Event or Public?"
+        placeholder='{isPublic}'
         value={formValue.isPublic}
         onChange={handleChange}
       />
       <input
         className='input-event-btn'
         name="status"
-        placeholder="Event Status"
+        placeholder='{stat}'
         value={formValue.status}
         onChange={handleChange}
       />
@@ -120,10 +133,18 @@ const EventForm = () => {
       <button
         type="submit"
       >
-        Create
+        Submit
       </button>
     </form>
-    )
+        
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
 }
+
+
 
 export default EventForm;
