@@ -9,19 +9,23 @@ import AddEvent from './AddEvent'
 import EditEvent from './EditEvent'
 import { Link } from 'react-router-dom'
 import axios from "axios";
+import { useNavigate } from "react-router-dom"
 
 function LargeModal(props) {
   const [modalShow, setModalShow] = React.useState(false);
   const [modalShowEdit, setModalShowEdit] = React.useState(false);
 
+  let navigate = useNavigate()
   const deleteHandler = async () => {
       try {
         const res = await axios.delete(`https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/${props.id}`)
         console.log('Item successfully deleted.')
+        props.onHide
       } catch (error) {
         alert(error)
       }
-    
+      
+      navigate(-1)
   }
   return (
     <div className='modal'>
@@ -89,7 +93,7 @@ function LargeModal(props) {
         </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={deleteHandler}>Delete</Button>
+          <Button  onClick={deleteHandler}>Delete</Button>
         <Button onClick={() => setModalShowEdit(true)}>Edit</Button>
           <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer>
