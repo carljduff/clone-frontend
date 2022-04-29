@@ -3,6 +3,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 import EventChat from "../components/EventChat";
 import Card from 'react-bootstrap/Card'
+import { useState } from 'react';
 import '../css/navbar.css'
 import '../css/event.css'
 import AddEvent from './AddEvent'
@@ -12,20 +13,23 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom"
 
 function LargeModal(props) {
-  const [modalShow, setModalShow] = React.useState(false);
-  const [modalShowEdit, setModalShowEdit] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
+  const [modalShowEdit, setModalShowEdit] = useState(false);
 
-  let navigate = useNavigate()
+
+
   const deleteHandler = async () => {
       try {
         const res = await axios.delete(`https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/${props.id}`)
         console.log('Item successfully deleted.')
-        props.onHide
+        props.onHide()
+        window.location.reload();
+
       } catch (error) {
         alert(error)
       }
       
-      navigate(-1)
+    
   }
   return (
     <div className='modal'>
@@ -89,6 +93,15 @@ function LargeModal(props) {
           <EditEvent 
           show={modalShowEdit}
           onHide={() => setModalShowEdit(false)}
+          id={props.id} 
+          title={props.title}
+          desc={props.desc}
+          address={props.address}
+          date={props.date}
+          stime={props.stime}
+          etime={props.etime}
+          private={props.private}
+          status={props.status}
            />
         </div>
         </Modal.Body>

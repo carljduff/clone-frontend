@@ -9,6 +9,7 @@ import Profile from './components/user/Profile';
 import AddEvent from './components/AddEvent';
 import EventMain from './components/EventMain';
 import EditEvent from './components/EditEvent';
+import About from './pages/About';
 //FOR AUTH LOGIN------------------------------------------------
 // import Login from './components/user/Login';
 // import Register from './components/user/Register';
@@ -34,7 +35,7 @@ root.render(
   <Route path='profile' element={<Profile />} /> 
   <Route path='addevent' element={<AddEvent />} />
   <Route path='eventlist/edit' element={<EditEvent />} />
-
+  <Route path='about' element={<About />} />
   </Routes>
   
   

@@ -8,16 +8,21 @@ import Button from 'react-bootstrap/Button'
 const EditEvent = (props) => {
   const [modalShowEdit, setModalShowEdit] = React.useState(false);
 
+    const reload = () => {
+      window.location.reload()
+      props.onHide()
+    }
+
     const[formValue, setFormValue] = useState({
         owner: 2,
-        title: '',
-        description: '',
-        address: '',
-        date: '',
-        start_time: '',
-        end_time: '',
-        isPublic: false,
-        status: 1,
+        title: `${props.title}`,
+        description: `${props.desc}`,
+        address: `${props.address}`,
+        date: `${props.date}`,
+        start_time: `${props.stime}`,
+        end_time: `${props.etime}`,
+        isPublic: `${props.private}`,
+        status: `${props.status}`,
         // guests: null,
     });
 
@@ -26,7 +31,7 @@ const EditEvent = (props) => {
             ...formValue,
             [e.target.name]: e.target.value
         });
-        console.log(props.id)
+        // console.log(props.id)
     }
 
     const handleSubmit = async(e) => {
@@ -47,7 +52,7 @@ const EditEvent = (props) => {
         try {
             const response = await axios({
                 method: "PUT",
-                url: `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/1/`, //needs {props.id}
+                url: `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/${props.id}/`, 
                 data: eventFormData,
                 headers: { "Content-Type": "multipart/form-data" },
             });
@@ -89,14 +94,14 @@ const EditEvent = (props) => {
       <input
         className='input-event-btn'
         name="description"
-        placeholder='{props.desc}'
+        placeholder={props.desc}
         value={formValue.description}
         onChange={handleChange}
       />
       <input
         className='input-event-btn'
         name="address"
-        placeholder='{props.address}'
+        placeholder={props.address}
         value={formValue.address}
         onChange={handleChange}
       />
@@ -138,6 +143,7 @@ const EditEvent = (props) => {
       
       <button
         type="submit"
+        onClick={reload}
       >
         Submit
       </button>

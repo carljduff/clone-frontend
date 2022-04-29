@@ -1,14 +1,11 @@
-import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { getData } from "../data";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import '../css/event.css'
-import { Link } from "react-router-dom";
-import LargeModal from '../components/LargeModal'
-import Test from "./Test";
-import EditEvent from "./EditEvent";
+import LargeModal from './LargeModal'
+
 const EventList = () => {
   const [events, setEvents] = useState([]); 
  
@@ -35,6 +32,7 @@ const Event = ({event}) => {
   return (
     <div className="event-container">
      
+    <div className="event-card">
 
       <Card style={{ width: '18rem' }}>
   <Card.Img variant="top" src={event.img} />
@@ -49,6 +47,7 @@ const Event = ({event}) => {
     <Button onClick={() => setModalShow(true)} variant="primary">View</Button>
   </Card.Body>
 </Card>
+    </div>
 
 <LargeModal
   show={modalShow}
@@ -64,24 +63,7 @@ const Event = ({event}) => {
   status={event.status}
   />
   
-  <EditEvent
-  event={event}
-  />
     </div>
   )
 }
 export default EventList;
-// let baseURL = `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us42.gitpod.io/api/`
-
-// const [event, setEvent] = useState([])
-
-//   useEffect(() => {
-//     axios.get(`${baseURL}events/`).then((response) => {
-//       setEvent(response.data);
-//     });
-//   }, []);
-
-//   if (!event) return null;
-// <div>
-// <h1> {event.title} </h1>
-// </div>
