@@ -1,18 +1,15 @@
 import Modal from 'react-bootstrap/Modal'
 import React from 'react'
 import Button from 'react-bootstrap/Button'
-import EventChat from "../components/EventChat";
+import EventChat from "./EventChat";
 import Card from 'react-bootstrap/Card'
 import { useState } from 'react';
 import '../css/navbar.css'
 import '../css/event.css'
-import AddEvent from './AddEvent'
 import EditEvent from './EditEvent'
-import { Link } from 'react-router-dom'
 import axios from "axios";
-import { useNavigate } from "react-router-dom"
-
-function LargeModal(props) {
+import Items from './Items';
+function MainEvent(props) {
   const [modalShow, setModalShow] = useState(false);
   const [modalShowEdit, setModalShowEdit] = useState(false);
 
@@ -64,12 +61,12 @@ function LargeModal(props) {
                 </div>
               <hr/>
               <div className='choose-items' >
-              <p> What would you like to bring? <br/>
+              <p> What would you like to bring?   <button>+</button> <br/>
               Please select an item.</p>
-  
-              <p>DISPLAY LIST OF ITEMS THAT OWNER SETS AND ALLOW TO BE CHOSEN</p>
-            
               </div>
+  
+              <Items/>
+            
             </Card.Text>
           </Card.Body>
         </Card>
@@ -118,7 +115,7 @@ function LargeModal(props) {
   }
 
 
-  export default LargeModal;
+  export default MainEvent;
 
  
  

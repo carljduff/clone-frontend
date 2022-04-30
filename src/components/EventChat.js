@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
@@ -7,12 +7,21 @@ const EventChat = (props) => {
   const [comment, setComment] = useState([]);
   const [input, setInput] = useState('')
 
+  useEffect(() => {
+    setComment(JSON.parse(localStorage.getItem("test")))
+  }, []);
+
+  useEffect(() =>{
+    localStorage.setItem("test", JSON.stringify(comment))
+  }, [comment]);
+
+
   const handleInput = (e) => {
     setInput(e.target.value)
   }
 
   const inputSubmitHandler = (e) => {
-    setComment(input)
+    setComment(comment)
     console.log(comment)
     setInput('')
   }

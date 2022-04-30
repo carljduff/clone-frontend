@@ -51,13 +51,13 @@
     justify-content: center;
 }
 
-/* .container {
+.container {
     display: flex;
     flex-flow: row;
     justify-content: center;
     align-items: center;
 
-} */
+}
 
 .form-input, .input-event-btn {
     border: 0;
@@ -92,7 +92,41 @@ input:focus, textarea:focus, select:focus{
     margin: 0;
     margin-top: 30vh;
     gap: 10px;
+    border: 1px solid black;
+    max-width: 300px;
+    border-radius: 20px;
 }
+
+.preview-card {
+    width: 18rem;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: pink;
+
+}
+
+.main-container {
+    display: flex;
+    margin: auto;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid black;
+    max-width: 800px;
+}
+
+.add-container {
+    display: flex;
+    flex-flow: row wrap;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
 
 
 

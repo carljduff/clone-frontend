@@ -1,7 +1,7 @@
 
 import React from "react";
 import girls from '../images/girls.png'
-
+import NavBar from "../components/NavBar";
 import '../css/navbar.css'
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
     return (
      <>
    
-
+   <NavBar/>
     <div className="home-container">
     <div className="home-left">
         <div className="home-left-wrapper">

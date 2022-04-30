@@ -51,8 +51,10 @@ const EventForm = () => {
     }
 
     return (
-    <form className='create-event' onSubmit={handleSubmit}>
+      <div className="add-container">
+
       
+    <form className='create-event' onSubmit={handleSubmit}>
       <input
         className='input-event-btn'
         name="owner"
@@ -123,6 +125,7 @@ const EventForm = () => {
         Create
       </button>
     </form>
+    </div>
     )
 }
 

@@ -7,7 +7,6 @@ import Login from './pages/Loginnn';
 import Register from './components/user/Register'
 import Profile from './components/user/Profile';
 import AddEvent from './components/AddEvent';
-import EventMain from './components/EventMain';
 import EditEvent from './components/EditEvent';
 import About from './pages/About';
 //FOR AUTH LOGIN------------------------------------------------
@@ -31,7 +30,6 @@ root.render(
   <Route path="register" element={<Register />} />
   {/* FOR AUTH LOGIN------------------------------------ */}
   <Route path='eventlist' element={<EventList />}  />
-  <Route path='eventlist/event' element={<EventMain />} />
   <Route path='profile' element={<Profile />} /> 
   <Route path='addevent' element={<AddEvent />} />
   <Route path='eventlist/edit' element={<EditEvent />} />

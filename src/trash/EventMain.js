@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card'
 import '../css/event.css'
-import EventChat from "./EventChat";
+import EventChat from "../components/EventChat";
 import Button from 'react-bootstrap/Button';
 import React from 'react';
 
