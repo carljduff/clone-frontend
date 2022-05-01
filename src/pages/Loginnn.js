@@ -23,7 +23,7 @@ const Login = () => {
           currentUserToken: resp.access,
           currentUser: data
         })
-       
+       window.location.reload()
       });
   }
 

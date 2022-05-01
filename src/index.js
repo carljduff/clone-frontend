@@ -9,6 +9,7 @@ import Profile from './components/user/Profile';
 import AddEvent from './components/AddEvent';
 import EditEvent from './components/EditEvent';
 import About from './pages/About';
+
 //FOR AUTH LOGIN------------------------------------------------
 // import Login from './components/user/Login';
 // import Register from './components/user/Register';

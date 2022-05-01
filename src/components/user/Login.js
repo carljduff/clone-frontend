@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useGlobalState } from "../../context/GlobalState";
 import jwtDecode from "jwt-decode";
 
 const Login = () => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   const [ state, dispatch ] = useGlobalState();
 
@@ -14,7 +14,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    // <Navigate to='/profile' />
     AuthService
       .login(username, password)
       .then(async (resp) => {
@@ -23,7 +23,9 @@ const Login = () => {
           currentUserToken: resp.access,
           currentUser: data
         })
-        navigate('../profile')
+        // navigate('/profile')
+        window.location.reload()
+        
       });
   }
 

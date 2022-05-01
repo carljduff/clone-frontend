@@ -2,9 +2,12 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useGlobalState } from '../context/GlobalState'
+
 const EventForm = () => {
+  const [state, dispatch] = useGlobalState();
     const[formValue, setFormValue] = useState({
-        owner: 2,
+        owner: `${state.currentUser.user_id}`,
         title: '',
         description: '',
         address: '',
