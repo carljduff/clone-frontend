@@ -10,11 +10,11 @@ import EditEvent from './EditEvent'
 import axios from "axios";
 import Items from './Items';
 import request from '../services/api.request';
+import AddItem from './AddItem';
 
 function MainEvent(props) {
   const [modalShow, setModalShow] = useState(false);
   const [modalShowEdit, setModalShowEdit] = useState(false);
-
 
 
   const deleteHandler = async (e) => {
@@ -93,6 +93,7 @@ function MainEvent(props) {
             show={modalShow}
             onHide={() => setModalShow(false)}
           />
+          <AddItem id={props.id} />
           <EditEvent 
           show={modalShowEdit}
           onHide={() => setModalShowEdit(false)}
