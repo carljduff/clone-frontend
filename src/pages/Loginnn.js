@@ -5,7 +5,10 @@ import AuthService from '../services/auth.service';
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../context/GlobalState';
 import jwtDecode from 'jwt-decode';
+import { GlobalProvider } from '../context/GlobalState';
+import { Outlet } from 'react-router-dom';
 import '../css/login.css'
+
 const Login = () => {
   let navigate = useNavigate();
   const [ state, dispatch ] = useGlobalState();
@@ -28,6 +31,7 @@ const Login = () => {
   }
 
     return(
+      
         <div className='login-form'>
             <Form onSubmit={handleLogin}> 
   <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -53,10 +57,6 @@ const Login = () => {
   </div>
 </Form>
         </div>
-
-
-
-
     )
 }
 

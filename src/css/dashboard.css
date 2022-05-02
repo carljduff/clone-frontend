@@ -1,0 +1,13 @@
+.dash-nav {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    border: 1px solid black;
+    /* margin-top: 20px; */
+}
+
+.greeting {
+    font-size: 25px;
+}

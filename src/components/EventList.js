@@ -4,14 +4,27 @@ import { getData } from "../data";
 import "../css/event.css";
 import MainEvent from "./MainEvent";
 import EventCard from "./EventCard";
-
+import request from "../services/api.request";
 const EventList = () => {
   const [events, setEvents] = useState([]);
   const ENDPOINT = 'events'
+  // useEffect(() => {
+  //   getData({ENDPOINT}).then((data) => {
+  //     setEvents(data);
+  //   });
+  // }, []);
+
   useEffect(() => {
-    getData({ENDPOINT}).then((data) => {
-      setEvents(data);
-    });
+    async function getEvents() {
+      let options = {
+        url: 'https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/',
+        method: 'GET',
+      }
+      let resp = await request(options)
+      setEvents(resp.data)
+
+    }
+    getEvents()
   }, []);
 
   return (

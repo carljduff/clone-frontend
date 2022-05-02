@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { useGlobalState } from '../context/GlobalState'
 import '../css/navbar.css'
 
@@ -32,6 +32,7 @@ const NavBar = () => {
                    )
                }
                <Link to='/addevent'>Add Event</Link>
+               <Outlet/>
           </div>
     </div>
     )

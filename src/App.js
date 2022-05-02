@@ -7,23 +7,21 @@ import Test from './components/Test';
 import {Outlet} from 'react-router-dom';
 import { GlobalProvider } from './context/GlobalState'
 import Login from './pages/Loginnn';
+import EventList from './components/EventList'
+import Dashboard from './components/Dashboard'
+
 function App() {
   if (localStorage.getItem("user") === null) {
     return(
       <GlobalProvider>
-      <Login/>
-      <Outlet/>
+        <Login/>
+        <Outlet/>
       </GlobalProvider>
     )
-  } else {
+  } else if(localStorage.getItem("user") != null) {
 
     return (
-    
-        <Home />
-       
-  
-  
-  
+      <Home/>
     );
   }
 
