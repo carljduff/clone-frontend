@@ -5,7 +5,7 @@ import { useGlobalState } from '../context/GlobalState'
 
 const EventCard = ({ event, setModalShow }) => {
   const [state, dispatch] = useGlobalState();
-  if(event.owner == state.currentUser.user_id) {
+  // if(event.owner == state.currentUser.user_id) {
     return (
       <div className="preview-container">
         <Card className="preview-card">
@@ -24,7 +24,7 @@ const EventCard = ({ event, setModalShow }) => {
         </Card>
       </div>
     );
-  }
+  // }
 };
 
 export default EventCard;

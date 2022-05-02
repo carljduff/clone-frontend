@@ -9,15 +9,21 @@ import '../css/event.css'
 import EditEvent from './EditEvent'
 import axios from "axios";
 import Items from './Items';
+import request from '../services/api.request';
+
 function MainEvent(props) {
   const [modalShow, setModalShow] = useState(false);
   const [modalShowEdit, setModalShowEdit] = useState(false);
 
 
 
-  const deleteHandler = async () => {
+  const deleteHandler = async (e) => {
       try {
-        const res = await axios.delete(`https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/${props.id}`)
+        let options = {
+          url: `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/${props.id}`,
+          method: 'DELETE',
+        }
+        let resp = await request(options)
         console.log('Item successfully deleted.')
         props.onHide()
         window.location.reload();
