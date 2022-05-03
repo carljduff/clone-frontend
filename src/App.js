@@ -9,21 +9,22 @@ import { GlobalProvider } from './context/GlobalState'
 import Login from './pages/Loginnn';
 import EventList from './components/EventList'
 import Dashboard from './components/Dashboard'
+import RightModal from './components/RightModal';
 
 function App() {
-  if (localStorage.getItem("user") === null) {
+  // if (localStorage.getItem("user") === null) {
     return(
       <GlobalProvider>
-        <Login/>
+        <RightModal/>
         <Outlet/>
       </GlobalProvider>
     )
-  } else if(localStorage.getItem("user") != null) {
+  // } else if(localStorage.getItem("user") != null) {
 
-    return (
-      <Home/>
-    );
-  }
+  //   return (
+  //     <Home/>
+  //   );
+  // }
 
     
 }

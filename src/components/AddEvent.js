@@ -30,7 +30,7 @@ const EventForm = () => {
     const handleSubmit = async(e) => {
         e.preventDefault()
         const eventFormData = new FormData();
-        eventFormData.append("owner", formValue.owner)
+        eventFormData.append("owner", `${state.currentUser.user_id}`)
         eventFormData.append("title", formValue.title)
         eventFormData.append("description", formValue.description)
         eventFormData.append("address", formValue.address)
@@ -38,7 +38,7 @@ const EventForm = () => {
         eventFormData.append("start_time", formValue.start_time)
         eventFormData.append("end_time", formValue.end_time)
         eventFormData.append("isPublic", formValue.isPublic)
-        eventFormData.append("status", formValue.status)
+        eventFormData.append("status", 1)
         // eventFormData.append("guests", formValue.guests)
 
 
@@ -60,13 +60,7 @@ const EventForm = () => {
 
       
     <form className='create-event' onSubmit={handleSubmit}>
-      <input
-        className='input-event-btn'
-        name="owner"
-        placeholder="Who you be?"
-        value={formValue.owner}
-        onChange={handleChange}
-      />
+      
       <input
         className='input-event-btn'
         name="title"
@@ -116,13 +110,13 @@ const EventForm = () => {
         value={formValue.isPublic}
         onChange={handleChange}
       />
-      <input
+      {/* <input
         className='input-event-btn'
         name="status"
         placeholder="Event Status"
         value={formValue.status}
         onChange={handleChange}
-      />
+      /> */}
       
       <button
         type="submit"

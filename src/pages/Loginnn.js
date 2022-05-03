@@ -7,6 +7,7 @@ import { useGlobalState } from '../context/GlobalState';
 import jwtDecode from 'jwt-decode';
 import { GlobalProvider } from '../context/GlobalState';
 import { Outlet } from 'react-router-dom';
+import Dashboard from '../components/Dashboard';
 import '../css/login.css'
 
 const Login = () => {
@@ -26,7 +27,9 @@ const Login = () => {
           currentUserToken: resp.access,
           currentUser: data
         })
-       window.location.reload()
+      //  window.location.reload()
+      navigate("/dash", { replace: true });
+      window.location.reload()
       });
   }
 

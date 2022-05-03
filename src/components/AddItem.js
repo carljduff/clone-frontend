@@ -36,6 +36,7 @@ const AddItem = (props) => {
               headers: { "Content-Type": "multipart/form-data" },
             }
             let resp = await request(options)
+            console.log(`${props.id}`)
         } catch(error) {
             console.log(error)
         }

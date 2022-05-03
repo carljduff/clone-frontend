@@ -1,13 +1,33 @@
+.dash-container {
+    display: flex;
+
+}
 .dash-nav {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    align-items: center;
-    max-width: 400px;
-    border: 1px solid black;
-    /* margin-top: 20px; */
+    align-items: flex-start;
+    padding-left: 50px;
+    gap: 20px;
+    min-width: 300px;
+    border-radius: 20px;
+    background-color: white;
+    min-height: 100vh;
 }
 
 .greeting {
     font-size: 25px;
+}
+
+.event-list {
+    display: flex;
+    position: fixed;
+    top: 50px;
+    margin-left: 350px;
+}
+
+.add-btn {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
 }

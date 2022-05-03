@@ -14,7 +14,7 @@ const NavBar = () => {
             <Link to='/about'>About</Link>
             <a href="">Blog</a>
 
-            <Link to='/eventlist'>Events</Link>
+            
            <div className='nav-btn'>
                {
                    !state.currentUser && (
