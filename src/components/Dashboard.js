@@ -5,6 +5,11 @@ import { useGlobalState } from '../context/GlobalState'
 import '../css/dashboard.css'
 import { useNavigate } from 'react-router-dom';
 import AuthService from '../services/auth.service';
+import Icon from '@mui/material/Icon';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const Dashboard = () => {
     const [ state, dispatch ] = useGlobalState();
@@ -16,7 +21,7 @@ const Dashboard = () => {
         window.location.reload()
     }
    
-        
+  
 
     
 
@@ -44,7 +49,12 @@ const Dashboard = () => {
 
             <EventList />
             </div>
-            <button className='add-btn'>ADD</button>
+
+            <div>
+
+  
+            <button className='add-btn'><Icon sx={{ fontSize: 100 }} color="primary">add_circle</Icon></button>
+            </div>
         </div>
         
 

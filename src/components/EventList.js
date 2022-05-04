@@ -5,7 +5,9 @@ import "../css/event.css";
 import MainEvent from "./MainEvent";
 import EventCard from "./EventCard";
 import request from "../services/api.request";
+import { useGlobalState } from "../context/GlobalState";
 const EventList = () => {
+  const [state, dispatch] = useGlobalState();
   const [events, setEvents] = useState([]);
   const ENDPOINT = 'events'
   // useEffect(() => {
@@ -14,23 +16,23 @@ const EventList = () => {
   //   });
   // }, []);
 
-  useEffect(() => {
-    async function getEvents() {
-      let options = {
-        url: 'https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/',
-        method: 'GET',
-      }
-      let resp = await request(options)
-      setEvents(resp.data)
+  // useEffect(() => {
+  //   async function getEvents() {
+      // let options = {
+      //   url: 'https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/',
+      //   method: 'GET',
+      // }
+      // let resp = await request(options)
+  //     setEvents(state.events)
 
-    }
-    getEvents()
-  }, []);
+  //   }
+  //   getEvents()
+  // }, []);
 
   return (
     <>
       <div className="main-container">
-        {events.map((event) => (
+        {state.events.map((event) => (
           <Event key={event.id} event={event} />
         ))}
       </div>

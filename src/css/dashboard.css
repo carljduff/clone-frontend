@@ -30,4 +30,6 @@
     position: fixed;
     bottom: 50px;
     right: 50px;
+    border: none;
+    background-color: #E6E6E4;
 }

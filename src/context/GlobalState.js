@@ -7,10 +7,12 @@ import React, {
   import jwtDecode from 'jwt-decode'
   
   let user = JSON.parse(localStorage.getItem('user'))
-  
+  let savedEvents = JSON.parse(localStorage.getItem('events'))
   const initialState = {
     currentUser: user ? jwtDecode(user.access) : null,
-    currentUserToken: user ? user.access : null
+    currentUserToken: user ? user.access : null,
+    events: savedEvents ? savedEvents : [],
+
   }
   
   const GlobalStateContext = createContext(initialState);

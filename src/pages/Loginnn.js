@@ -9,6 +9,7 @@ import { GlobalProvider } from '../context/GlobalState';
 import { Outlet } from 'react-router-dom';
 import Dashboard from '../components/Dashboard';
 import '../css/login.css'
+import request from '../services/api.request';
 
 const Login = () => {
   let navigate = useNavigate();
@@ -23,15 +24,27 @@ const Login = () => {
       .login(username, password)
       .then(async (resp) => {
         let data = jwtDecode(resp.access)
+        let events = await getEvents(data.user_id)
         await dispatch({
           currentUserToken: resp.access,
-          currentUser: data
+          currentUser: data,
+          events
         })
+        localStorage.setItem('events', JSON.stringify(events))
       //  window.location.reload()
       navigate("/dash", { replace: true });
       window.location.reload()
       });
   }
+
+    const getEvents = async (id) => {
+      let options = {
+        url: `/api/events/?owner=${id}`,
+        method: 'GET',
+      }
+      let resp = await request(options)
+      return resp.data
+    }
 
     return(
       
