@@ -16,6 +16,7 @@ const EventCard = ({ event, setModalShow }) => {
               {event.date}
               {event.start_time}
               {event.end_time}
+              {event.id}
             </Card.Text>
             <Button onClick={() => setModalShow(true)} variant="primary">
               View

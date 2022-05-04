@@ -50,6 +50,7 @@ const EventForm = () => {
               headers: { "Content-Type": "multipart/form-data" },
             }
             let resp = await request(options)
+            console.log()
         } catch(error) {
             console.log(error)
         }
