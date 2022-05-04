@@ -24,27 +24,27 @@ const Login = () => {
       .login(username, password)
       .then(async (resp) => {
         let data = jwtDecode(resp.access)
-        let events = await getEvents(data.user_id)
+        // let events = await getEvents(data.user_id)
         await dispatch({
           currentUserToken: resp.access,
           currentUser: data,
-          events
+          // events
         })
-        localStorage.setItem('events', JSON.stringify(events))
+        // localStorage.setItem('events', JSON.stringify(events))
       //  window.location.reload()
       navigate("/dash", { replace: true });
       window.location.reload()
       });
   }
 
-    const getEvents = async (id) => {
-      let options = {
-        url: `/api/events/?owner=${id}`,
-        method: 'GET',
-      }
-      let resp = await request(options)
-      return resp.data
-    }
+    // const getEvents = async (id) => {
+    //   let options = {
+    //     url: `/api/events/?owner=${id}`,
+    //     method: 'GET',
+    //   }
+    //   let resp = await request(options)
+    //   return resp.data
+    // }
 
     return(
       

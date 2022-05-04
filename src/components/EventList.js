@@ -8,7 +8,7 @@ import request from "../services/api.request";
 import { useGlobalState } from "../context/GlobalState";
 import Items from "./Items";
 const EventList = () => {
-  const [state, dispatch] = useGlobalState();
+  // const [state, dispatch] = useGlobalState();
   const [events, setEvents] = useState([]);
   const ENDPOINT = 'events'
   // useEffect(() => {
@@ -17,23 +17,23 @@ const EventList = () => {
   //   });
   // }, []);
 
-  // useEffect(() => {
-  //   async function getEvents() {
-  //     let options = {
-  //       url: 'https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/',
-  //       method: 'GET',
-  //     }
-  //     let resp = await request(options)
-  //     setEvents(resp.data)
+  useEffect(() => {
+    async function getEvents() {
+      let options = {
+        url: 'https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/',
+        method: 'GET',
+      }
+      let resp = await request(options)
+      setEvents(resp.data)
 
-  //   }
-  //   getEvents()
-  // }, []);
+    }
+    getEvents()
+  }, []);
 
   return (
     <>
       <div className="main-container">
-        {state.events.map((event) => (
+        {events.map((event) => (
           <Event key={event.id} event={event} />
         ))}
       </div>
