@@ -13,8 +13,8 @@ const NavBar = () => {
             <a href="">Home</a>
             <Link to='/about'>About</Link>
             <a href="">Blog</a>
-
-            
+            <Link to='/dash'>Dashboard</Link>
+            <Link to='/addevent'>Add</Link>
            <div className='nav-btn'>
                {
                    !state.currentUser && (
@@ -31,7 +31,7 @@ const NavBar = () => {
                     <Link to='/profile'>Profile</Link>
                    )
                }
-               <Link to='/addevent'>Add Event</Link>
+               
                <Outlet/>
           </div>
     </div>

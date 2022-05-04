@@ -6,6 +6,7 @@ import MainEvent from "./MainEvent";
 import EventCard from "./EventCard";
 import request from "../services/api.request";
 import { useGlobalState } from "../context/GlobalState";
+import Items from "./Items";
 const EventList = () => {
   const [state, dispatch] = useGlobalState();
   const [events, setEvents] = useState([]);
@@ -46,7 +47,7 @@ const Event = ({ event }) => {
   return (
     <div>
       <EventCard event={event} setModalShow={setModalShow} />
-
+      
       <MainEvent
         show={modalShow}
         onHide={() => setModalShow(false)}

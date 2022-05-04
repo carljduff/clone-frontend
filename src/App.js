@@ -15,7 +15,7 @@ function App() {
   // if (localStorage.getItem("user") === null) {
     return(
       <GlobalProvider>
-        <Home/>
+        <Test/>
         <Outlet/>
       </GlobalProvider>
     )

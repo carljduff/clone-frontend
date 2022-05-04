@@ -9,7 +9,8 @@ const EditEvent = (props) => {
   const [modalShowEdit, setModalShowEdit] = React.useState(false);
 
     const reload = () => {
-      window.location.reload()
+      // window.location.reload()
+      console.log(props.status)
       props.onHide()
     }
 
@@ -133,13 +134,18 @@ const EditEvent = (props) => {
         value={formValue.isPublic}
         onChange={handleChange}
       />
-      <input
+      {/* <input
         className='input-event-btn'
         name="status"
         placeholder='{stat}'
         value={formValue.status}
         onChange={handleChange}
-      />
+      /> */}
+      <select className="input-event-btn">
+  <option value={formValue.status}>Ongoing</option>
+  <option value={formValue.status}>Cancelled</option>
+  <option value={formValue.status}>Past</option>
+</select>
       
       <button
         type="submit"

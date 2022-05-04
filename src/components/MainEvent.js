@@ -69,11 +69,11 @@ function MainEvent(props) {
                 </div>
               <hr/>
               <div className='choose-items' >
-              <p> What would you like to bring?   <button>+</button> <br/>
+              <p> What would you like to bring?   <AddItem id={props.id}/> <br/>
               Please select an item.</p>
               </div>
   
-              <Items/>
+              <Items id={props.id}/>
             
             </Card.Text>
           </Card.Body>
@@ -95,7 +95,9 @@ function MainEvent(props) {
             show={modalShow}
             onHide={() => setModalShow(false)}
           />
-          <AddItem id={props.id} />
+
+          
+          
           <EditEvent 
           show={modalShowEdit}
           onHide={() => setModalShowEdit(false)}

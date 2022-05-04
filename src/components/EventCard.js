@@ -8,7 +8,7 @@ const EventCard = ({ event, setModalShow }) => {
   // if(event.owner == state.currentUser.user_id) {
     return (
       <div className="preview-container">
-        <Card className="preview-card">
+        <Card className="preview-card" onClick={() => setModalShow(true)}>
           <Card.Img variant="top" src={event.img} />
           <Card.Body>
             <Card.Title>{event.title}</Card.Title>
@@ -17,9 +17,9 @@ const EventCard = ({ event, setModalShow }) => {
               {event.start_time}
               {event.end_time}
             </Card.Text>
-            <Button onClick={() => setModalShow(true)} variant="primary">
+            {/* <Button onClick={() => setModalShow(true)} variant="primary">
               View
-            </Button>
+            </Button> */}
           </Card.Body>
         </Card>
       </div>

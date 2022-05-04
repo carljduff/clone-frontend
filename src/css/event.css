@@ -99,11 +99,19 @@ input:focus, textarea:focus, select:focus{
 
 .preview-card {
     width: 18rem;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 20px;
-    background-color: pink;
-
+    background-color: #FFF3F0;
+    padding: 15px; /* JUST TO LOOK COOL */
+    border: 1px solid #eee;  /* JUST TO LOOK COOL */
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
+    transition: all .3s ease-in-out;
 }
+  
+.preview-card:hover {
+    box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
+    transform: translate3d(0px, -1px, 0px);
+  }
 
 .main-container {
     display: flex;
@@ -112,7 +120,7 @@ input:focus, textarea:focus, select:focus{
     justify-content: center;
     align-items: center;
     gap: 20px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     max-width: 800px;
 }
 
