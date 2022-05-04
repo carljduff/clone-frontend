@@ -31,7 +31,7 @@ const AddItem = (props) => {
         try {
             let options = {
               method: "POST",
-              url: "https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/items/",
+              url: `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/items/?event__id=${props.id}`,
               data: eventFormData,
               headers: { "Content-Type": "multipart/form-data" },
             }

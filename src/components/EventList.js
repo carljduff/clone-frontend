@@ -18,12 +18,12 @@ const EventList = () => {
 
   // useEffect(() => {
   //   async function getEvents() {
-      // let options = {
-      //   url: 'https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/',
-      //   method: 'GET',
-      // }
-      // let resp = await request(options)
-  //     setEvents(state.events)
+  //     let options = {
+  //       url: 'https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/',
+  //       method: 'GET',
+  //     }
+  //     let resp = await request(options)
+  //     setEvents(resp.data)
 
   //   }
   //   getEvents()

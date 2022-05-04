@@ -19,6 +19,7 @@ const Dashboard = () => {
         localStorage.removeItem("user");
         navigate("/", { replace: true });
         window.location.reload()
+        localStorage.removeItem("events")
     }
    
   

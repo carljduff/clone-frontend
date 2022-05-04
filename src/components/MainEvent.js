@@ -11,8 +11,10 @@ import axios from "axios";
 import Items from './Items';
 import request from '../services/api.request';
 import AddItem from './AddItem';
+import { useGlobalState } from "../context/GlobalState"
 
 function MainEvent(props) {
+  const [state, dispatch] = useGlobalState();
   const [modalShow, setModalShow] = useState(false);
   const [modalShowEdit, setModalShowEdit] = useState(false);
 
