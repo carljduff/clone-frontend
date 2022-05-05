@@ -72,14 +72,14 @@ function MainEvent(props) {
             +
           </Button>
                </div>
-              <p> Title of Event: {props.title} </p>
-              <p> Address: {props.address}  </p>
-              <p> Date/Time: {props.date} | {props.stime}</p>
+              <h4> Title of Event: {props.title} </h4>
+              <h4> Address: {props.address}  </h4>
+              <h4> Date/Time: {props.date} | {props.stime}</h4>
                 </div>
-              <hr/>
+              {/* <hr/> */}
               <div className='choose-items' >
-              <p> What would you like to bring?   <AddItem id={props.id}/> <br/>
-              Please select an item.</p>
+              <h4> What would you like to bring?   <AddItem id={props.id}/> <br/>
+              Please select an item.</h4>
               </div>
   
               <Items id={props.id}/>

@@ -3,9 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from '../context/GlobalState'
 import request from "../services/api.request";
-import Select from 'react-select'
 import { API_URL } from "../services/auth.constants";
-import Dashboard from "./Dashboard";
 import '../css/dashboard.css'
 const EventForm = () => {
   const [state, dispatch] = useGlobalState();

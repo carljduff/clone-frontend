@@ -41,9 +41,9 @@ const EventChat = (props) => {
           Event Chat
         </Modal.Header>
         <Modal.Body>
-          <p>
+          <h5>
            {comment}
-          </p>
+          </h5>
         </Modal.Body>
         {/* <Modal.Footer> */}
           <div className="comment">

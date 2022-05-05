@@ -21,16 +21,16 @@ const EventMain = () => {
           +
         </Button>
              </div>
-            <p> Title of Event: </p>
-            <p> Address: </p>
-            <p> Date/Time: </p>
+            <h4> Title of Event: </h4>
+            <h4> Address: </h4>
+            <h4> Date/Time: </h4>
               </div>
             <hr/>
             <div className='choose-items' >
-            <p> What would you like to bring? <br/>
-            Please select an item.</p>
+            <h4> What would you like to bring? <br/>
+            Please select an item.</h4>
 
-            <p>DISPLAY LIST OF ITEMS THAT OWNER SETS AND ALLOW TO BE CHOSEN</p>
+            <h4>DISLAY LIST OF ITEMS THAT OWNER SETS AND ALLOW TO BE CHOSEN</h4>
           
             </div>
           </Card.Text>

@@ -26,7 +26,7 @@ const Dashboard = (props) => {
   return (
      <div className="dash-container">
     <div className="dash-nav">
-      <p className="greeting">Hi, *first name*</p>
+      <h6 className="greeting">Hi, *first name*</h6>
       <Link to="/">Home</Link>
       <a href="">Planning</a>
 
