@@ -1,6 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "../css/event.css";
+import '../css/dashboard.css'
 import { useGlobalState } from '../context/GlobalState'
 
 const EventCard = ({ event, setModalShow }) => {

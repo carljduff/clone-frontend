@@ -5,11 +5,13 @@ import Button from 'react-bootstrap/Button'
 import { useGlobalState } from '../context/GlobalState'
 import request from "../services/api.request";
 import Select from 'react-select';
+import { API_URL } from "../services/auth.constants";
 const statusOptions = [
   {value: '1', label: 'Ongoing'},
   {value: '2', label: 'Cancelled'},
   {value: '3', label: 'Past'}
 ]
+
 const EditEvent = (props) => {
   const [modalShowEdit, setModalShowEdit] = React.useState(false);
 
@@ -32,39 +34,34 @@ const EditEvent = (props) => {
         // guests: null,
     });
 
-    // const handleChange = (e) => {
-    //     setFormValue({
-    //         ...formValue,
-    //         [e.target.name]: e.target.value
-    //     });
-    //     // console.log(props.id)
-    // }
-
     const handleChange = (e) => {
-      setFormValue(
-        {value: e.value}
-      )
+        setFormValue({
+            ...formValue,
+            [e.target.name]: e.target.value
+        });
     }
+
+  
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        // const eventFormData = new FormData();
-        // eventFormData.append("owner", formValue.owner)
-        // eventFormData.append("title", formValue.title)
-        // eventFormData.append("description", formValue.description)
-        // eventFormData.append("address", formValue.address)
-        // eventFormData.append("date", formValue.date)
-        // eventFormData.append("start_time", formValue.start_time)
-        // eventFormData.append("end_time", formValue.end_time)
-        // eventFormData.append("isPublic", formValue.isPublic)
-        // eventFormData.append("status", formValue.status)
+        const eventFormData = new FormData();
+        eventFormData.append("owner", formValue.owner)
+        eventFormData.append("title", formValue.title)
+        eventFormData.append("description", formValue.description)
+        eventFormData.append("address", formValue.address)
+        eventFormData.append("date", formValue.date)
+        eventFormData.append("start_time", formValue.start_time)
+        eventFormData.append("end_time", formValue.end_time)
+        eventFormData.append("isPublic", formValue.isPublic)
+        eventFormData.append("status", formValue.status)
         // eventFormData.append("guests", formValue.guests)
 
 
         try {
             let options = {
                 method: "PUT",
-                url: `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/${props.id}/`, 
+                url: `${API_URL}api/events/${props.id}/`, 
                 data: formValue,
                 headers: { "Content-Type": "multipart/form-data" },
             };
@@ -146,19 +143,12 @@ const EditEvent = (props) => {
         value={formValue.isPublic}
         onChange={handleChange}
       />
-      <Select name='status' options={statusOptions} value={formValue.status} onChange={handleChange} />
-      {/* <input
-        className='input-event-btn'
-        name="status"
-        placeholder='{stat}'
-        value={formValue.status}
-        onChange={handleChange}
-      /> */}
-      <select className="input-event-btn">
-  <option value={formValue.status}>Ongoing</option>
-  <option value={formValue.status}>Cancelled</option>
-  <option value={formValue.status}>Past</option>
-</select>
+      <select name='status' onChange={handleChange}>
+        {statusOptions.map((option) => (
+          <option value={option.value}>{option.label}</option>
+        ))}
+      </select>
+     
       
       <button
         type="submit"

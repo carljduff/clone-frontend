@@ -4,6 +4,8 @@ import { useGlobalState } from "../context/GlobalState"
 import request from "../services/api.request"
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
+import { API_URL } from "../services/auth.constants"
+
 // const AddItem = ({id}) => {
 //     const [state, dispatch] = useGlobalState();
 //     const[formValue, setFormValue] = useState({
@@ -108,7 +110,7 @@ const AddItem = ({id}) => {
         try {
             let options = {
               method: "POST",
-              url: `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/items/`,
+              url: `${API_URL}api/items/`,
               data: eventFormData,
               headers: { "Content-Type": "multipart/form-data" },
             }
@@ -151,6 +153,7 @@ const AddItem = ({id}) => {
   
   <button
     type="submit"
+    onClick={handleClose}
   >
     Create
   </button>

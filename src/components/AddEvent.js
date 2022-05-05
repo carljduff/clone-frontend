@@ -1,18 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from '../context/GlobalState'
 import request from "../services/api.request";
 import Select from 'react-select'
-const statusOptions = [
-  {value: '1', label:"Ongoing"},
-  {value: '2', label:"Cancelled"}
-]
+import { API_URL } from "../services/auth.constants";
+import Dashboard from "./Dashboard";
+import '../css/dashboard.css'
 const EventForm = () => {
   const [state, dispatch] = useGlobalState();
-  const [selectedOption, setSelectedOption] = useState(null)
- 
+  let navigate = useNavigate();
+
     const[formValue, setFormValue] = useState({
         owner: `${state.currentUser.user_id}`,
         title: '',
@@ -22,7 +20,7 @@ const EventForm = () => {
         start_time: '',
         end_time: '',
         isPublic: false,
-        status: '',
+        status: '1',
         // guests: null,
     });
 
@@ -30,12 +28,12 @@ const EventForm = () => {
         setFormValue({
             ...formValue,
             [e.target.name]: e.target.value,
-            value: e.value
         });
     }
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+        navigate(-1)
         const eventFormData = new FormData();
         eventFormData.append("owner", `${state.currentUser.user_id}`)
         eventFormData.append("title", formValue.title)
@@ -52,7 +50,7 @@ const EventForm = () => {
         try {
             let options = {
               method: "POST",
-              url: "https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/",
+              url: `${API_URL}api/events/`,
               data: eventFormData,
               headers: { "Content-Type": "multipart/form-data" },
             }
@@ -61,10 +59,12 @@ const EventForm = () => {
             console.log(error)
         }
     }
-
     return (
-      <div className="add-container">
 
+      
+ 
+       
+      <div className="event-list">
       
     <form className='create-event' onSubmit={handleSubmit}>
       
@@ -117,14 +117,8 @@ const EventForm = () => {
         value={formValue.isPublic}
         onChange={handleChange}
       />
-      <Select name='status' options={statusOptions} value={selectedOption} onChange={setSelectedOption} />
-      {/* <input
-        className='input-event-btn'
-        name="status"
-        placeholder="Event Status"
-        value={formValue.status}
-        onChange={handleChange}
-      /> */}
+      
+    
       
       <button
         type="submit"
@@ -133,144 +127,13 @@ const EventForm = () => {
       </button>
     </form>
     </div>
+
     )
 }
 
 export default EventForm;
 
-// import React from "react";
-// import { useState } from "react";
-// import axios from "axios";
-// import { useNavigate } from "react-router-dom";
-// import { useGlobalState } from '../context/GlobalState'
-// import request from "../services/api.request";
 
-// const EventForm = () => {
-//   const [state, dispatch] = useGlobalState();
-//     const[formValue, setFormValue] = useState({
-//         owner: `${state.currentUser.user_id}`,
-//         title: '',
-//         description: '',
-//         address: '',
-//         date: '',
-//         start_time: '',
-//         end_time: '',
-//         isPublic: false,
-//         status: 1,
-//         // guests: null,
-//     });
-
-//     const handleChange = (e) => {
-//         setFormValue({
-//             ...formValue,
-//             [e.target.name]: e.target.value
-//         });
-//     }
-
-//     const handleSubmit = async(e) => {
-//         e.preventDefault()
-//         const eventFormData = new FormData();
-//         eventFormData.append("owner", formValue.owner)
-//         eventFormData.append("title", formValue.title)
-//         eventFormData.append("description", formValue.description)
-//         eventFormData.append("address", formValue.address)
-//         eventFormData.append("date", formValue.date)
-//         eventFormData.append("start_time", formValue.start_time)
-//         eventFormData.append("end_time", formValue.end_time)
-//         eventFormData.append("isPublic", formValue.isPublic)
-//         eventFormData.append("status", formValue.status)
-//         // eventFormData.append("guests", formValue.guests)
-
-
-//         try {
-//             const response = await axios({
-//                 method: "POST",
-//                 url: "https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/",
-//                 data: eventFormData,
-//                 headers: { "Content-Type": "multipart/form-data" },
-//             });
-//         } catch(error) {
-//             console.log(error)
-//         }
-//     }
-
-//     return (
-//       <div className="add-container">
-
-      
-//     <form className='create-event' onSubmit={handleSubmit}>
-//       <input
-//         className='input-event-btn'
-//         name="owner"
-//         placeholder="Who you be?"
-//         value={formValue.owner}
-//         onChange={handleChange}
-//       />
-//       <input
-//         className='input-event-btn'
-//         name="title"
-//         placeholder="Type Title Here"
-//         value={formValue.title}
-//         onChange={handleChange}
-//       />
-//       <input
-//         className='input-event-btn'
-//         name="description"
-//         placeholder="Tell us more"
-//         value={formValue.description}
-//         onChange={handleChange}
-//       />
-//       <input
-//         className='input-event-btn'
-//         name="address"
-//         placeholder="Where is it?"
-//         value={formValue.address}
-//         onChange={handleChange}
-//       />
-//       <input
-//         className='input-event-btn'
-//         name="date"
-//         placeholder="When is it?"
-//         value={formValue.date}
-//         onChange={handleChange}
-//       />
-//       <input
-//         className='input-event-btn'
-//         name="start_time"
-//         placeholder="When does it start?"
-//         value={formValue.start_time}
-//         onChange={handleChange}
-//       />
-//       <input
-//         className='input-event-btn'
-//         name="end_time"
-//         placeholder="When does it end?"
-//         value={formValue.end_time}
-//         onChange={handleChange}
-//       />
-//       <input
-//         className='input-event-btn'
-//         name="isPublic"
-//         placeholder="Private Event or Public?"
-//         value={formValue.isPublic}
-//         onChange={handleChange}
-//       />
-//       <input
-//         className='input-event-btn'
-//         name="status"
-//         placeholder="Event Status"
-//         value={formValue.status}
-//         onChange={handleChange}
-//       />
-      
-//       <button
-//         type="submit"
-//       >
-//         Create
-//       </button>
-//     </form>
-//     </div>
-//     )
-// }
-
-// export default EventForm;
+                
+              
+    

@@ -4,6 +4,7 @@ import { getData } from "../data";
 import "../css/items.css";
 import request from "../services/api.request";
 import { useGlobalState } from '../context/GlobalState';
+import { API_URL } from "../services/auth.constants";
 
 const Items = ({id}) => {
     const [ state, dispatch ] = useGlobalState();
@@ -12,7 +13,7 @@ const Items = ({id}) => {
     useEffect(() => {
         async function getItems() {
             let options = {
-                url: `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/items/?event__id=${id}`,
+                url: `${API_URL}api/items/?event__id=${id}`,
                 method: 'GET',
             }
             let resp = await request(options)
@@ -42,7 +43,7 @@ const Item = ({item}) => {
     const deleteHandler = async() => {
             try {
               let options = {
-                url: `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/items/${item.id}`,
+                url: `${API_URL}api/items/${item.id}`,
                 method: 'DELETE',
               }
               let resp = await request(options)

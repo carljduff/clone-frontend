@@ -21,9 +21,9 @@
 
 .event-list {
     display: flex;
-    position: fixed;
-    top: 50px;
-    margin-left: 350px;
+    flex-flow: row wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .add-btn {

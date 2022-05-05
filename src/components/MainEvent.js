@@ -3,26 +3,35 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 import EventChat from "./EventChat";
 import Card from 'react-bootstrap/Card'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../css/navbar.css'
 import '../css/event.css'
 import EditEvent from './EditEvent'
-import axios from "axios";
 import Items from './Items';
 import request from '../services/api.request';
 import AddItem from './AddItem';
 import { useGlobalState } from "../context/GlobalState"
+import { API_URL } from '../services/auth.constants';
 
 function MainEvent(props) {
   const [state, dispatch] = useGlobalState();
+  // const [items, setItems] = useState();
+  const [rerender, setRerender] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [modalShowEdit, setModalShowEdit] = useState(false);
+  
+  // useEffect(() => {
+  //     setItems(<Items id={props.id}/>);
+  // }, [items])
 
+  useEffect(() => {
+    setRerender(!rerender)
+  }, [])
 
   const deleteHandler = async (e) => {
       try {
         let options = {
-          url: `https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/events/${props.id}`,
+          url: `${API_URL}api/events/${props.id}`,
           method: 'DELETE',
         }
         let resp = await request(options)
@@ -74,7 +83,8 @@ function MainEvent(props) {
               </div>
   
               <Items id={props.id}/>
-            
+              {rerender}
+            {/* {items} */}
             </Card.Text>
           </Card.Body>
         </Card>
