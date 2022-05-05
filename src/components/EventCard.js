@@ -12,11 +12,16 @@ const EventCard = ({ event, setModalShow }) => {
         <Card className="preview-card" onClick={() => setModalShow(true)}>
           <Card.Img variant="top" src={event.img} />
           <Card.Body>
-            <Card.Title>{event.title}</Card.Title>
+            <div className="card-title">
+            <Card.Title><h2>{event.title}</h2></Card.Title>
+            <hr/>
+            </div>
             <Card.Text>
-              {event.date}
-              {event.start_time}
-              {event.end_time}
+            <div className="card-info">
+              <h5>{event.date}</h5>
+              <h5>{event.start_time} - {event.end_time}</h5>
+              
+            </div>
             </Card.Text>
             {/* <Button onClick={() => setModalShow(true)} variant="primary">
               View

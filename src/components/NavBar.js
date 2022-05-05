@@ -13,8 +13,16 @@ const NavBar = () => {
             <a href="">Home</a>
             <Link to='/about'>About</Link>
             <a href="">Blog</a>
-            <Link to='/dash'>Dashboard</Link>
-            <Link to='/addevent'>Add</Link>
+            {
+                   state.currentUser && (
+                       <Link to='/dash'>Dashboard</Link>
+                   )
+               }
+                {
+                   state.currentUser && (
+                    <Link to='/profile'>Profile</Link>
+                   )
+               }
            <div className='nav-btn'>
                {
                    !state.currentUser && (
@@ -26,11 +34,8 @@ const NavBar = () => {
                     <Link to='/register'><button className='btn'>Sign Up</button></Link>
                    )
                }
-               {
-                   state.currentUser && (
-                    <Link to='/profile'>Profile</Link>
-                   )
-               }
+              
+                
                
                <Outlet/>
           </div>

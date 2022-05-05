@@ -106,6 +106,7 @@ input:focus, textarea:focus, select:focus{
     border: 1px solid #eee;  /* JUST TO LOOK COOL */
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
     transition: all .3s ease-in-out;
+    min-height: 200px;
 }
   
 .preview-card:hover {
@@ -132,6 +133,17 @@ input:focus, textarea:focus, select:focus{
     align-items: center;
 }
 
+.card-title {
+    text-align: center;
+}
+
+.card-info {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
 
 
 

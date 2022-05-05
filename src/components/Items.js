@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { getData } from "../data";
 import "../css/items.css";
+import MainEvent from "./MainEvent";
 import request from "../services/api.request";
 import { useGlobalState } from '../context/GlobalState';
 import { API_URL } from "../services/auth.constants";
@@ -22,12 +23,13 @@ const Items = ({id}) => {
         getItems()
     }, []);
 
+    <MainEvent items={items} />
     
     return (
         <>
         <div className="items">
             {items.map((item) => (
-                <Item key={item.id} item={item} />
+                <Item key={item.id}  item={item} />
             ))}
         </div>
         </>
@@ -37,7 +39,8 @@ const Items = ({id}) => {
 const Item = ({item}) => {
 
     const handleClick = () => {
-        console.log(`${item.id}`)
+        console.log(`Item ID: ${item.id}`)
+        console.log(`Item Label: ${item.label}`)
     }
 
     const deleteHandler = async() => {

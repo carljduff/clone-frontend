@@ -16,7 +16,6 @@ import { API_URL } from '../services/auth.constants';
 function MainEvent(props) {
   const [state, dispatch] = useGlobalState();
   // const [items, setItems] = useState();
-  const [rerender, setRerender] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [modalShowEdit, setModalShowEdit] = useState(false);
   
@@ -25,7 +24,7 @@ function MainEvent(props) {
   // }, [items])
 
   useEffect(() => {
-    setRerender(!rerender)
+    setItems(items)
   }, [])
 
   const deleteHandler = async (e) => {
@@ -36,6 +35,7 @@ function MainEvent(props) {
         }
         let resp = await request(options)
         console.log('Item successfully deleted.')
+        console.log({item})
         props.onHide()
         window.location.reload();
 
@@ -72,7 +72,7 @@ function MainEvent(props) {
             +
           </Button>
                </div>
-              <h4> Title of Event: {props.title} </h4>
+              <h4> Title of Event: {props.title} {props.items}</h4>
               <h4> Address: {props.address}  </h4>
               <h4> Date/Time: {props.date} | {props.stime}</h4>
                 </div>
@@ -83,7 +83,7 @@ function MainEvent(props) {
               </div>
   
               <Items id={props.id}/>
-              {rerender}
+              
             {/* {items} */}
             </Card.Text>
           </Card.Body>
