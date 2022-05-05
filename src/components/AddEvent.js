@@ -1,12 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from '../context/GlobalState'
 import request from "../services/api.request";
-
+import Select from 'react-select'
+const statusOptions = [
+  {value: '1', label:"Ongoing"},
+  {value: '2', label:"Cancelled"}
+]
 const EventForm = () => {
   const [state, dispatch] = useGlobalState();
+  const [selectedOption, setSelectedOption] = useState(null)
+ 
     const[formValue, setFormValue] = useState({
         owner: `${state.currentUser.user_id}`,
         title: '',
@@ -16,14 +22,15 @@ const EventForm = () => {
         start_time: '',
         end_time: '',
         isPublic: false,
-        status: 1,
+        status: '',
         // guests: null,
     });
 
     const handleChange = (e) => {
         setFormValue({
             ...formValue,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            value: e.value
         });
     }
 
@@ -38,7 +45,7 @@ const EventForm = () => {
         eventFormData.append("start_time", formValue.start_time)
         eventFormData.append("end_time", formValue.end_time)
         eventFormData.append("isPublic", formValue.isPublic)
-        eventFormData.append("status", 1)
+        eventFormData.append("status", formValue.status)
         // eventFormData.append("guests", formValue.guests)
 
 
@@ -110,6 +117,7 @@ const EventForm = () => {
         value={formValue.isPublic}
         onChange={handleChange}
       />
+      <Select name='status' options={statusOptions} value={selectedOption} onChange={setSelectedOption} />
       {/* <input
         className='input-event-btn'
         name="status"
