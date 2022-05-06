@@ -109,6 +109,7 @@ input:focus, textarea:focus, select:focus{
     align-items: center;
     background-color: white;
     gap: 10px;
+    margin-top: 0 !important;
     margin-left: 500px;
     border: 1px solid black;
     border-radius: 20px;
@@ -166,7 +167,10 @@ input:focus, textarea:focus, select:focus{
     border-radius: 20px;
 }
 
-
+/* .main-title {
+    border: 1px solid black;
+    max-height: 20px;
+} */
 
 
 

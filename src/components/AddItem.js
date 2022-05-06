@@ -6,15 +6,18 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import { API_URL } from "../services/auth.constants"
 import MainEvent from "./MainEvent"
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
+
 
 const categoryOptions = [
-  {value: 1, label: 'Food'},
   {value: 2, label: 'Appetizers'},
   {value: 3, label: 'Entrees'},
   {value: 4, label: 'Drinks'},
   {value: 5, label: 'Alcohol'},
   {value: 6, label: 'Essentials'},
 ]
+
 const AddItem = ({id}) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -92,7 +95,11 @@ const AddItem = ({id}) => {
       <option value={option.value}>{option.label}</option>
     ))}
   </select>
- 
+    {/* <Stack name='category' direction="row" spacing={1}>
+      {categoryOptions.map((option) => (
+      <Chip label={option.label} value={option.value} onClick={itemHandleChange}/>
+      ))}
+    </Stack> */}
   
   <button
     type="submit"

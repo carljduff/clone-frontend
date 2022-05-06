@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
-
+import { useNavigate } from "react-router-dom";
 const Register = () => {
+  let navigate = useNavigate();
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -21,6 +22,7 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     AuthService.register(user)
+    navigate("/dash", { replace: true });
   }
 
   return (

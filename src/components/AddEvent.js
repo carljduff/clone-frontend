@@ -11,6 +11,20 @@ const privacyOptions = [
   { value: false, label: "Public"},
 ]
 
+
+const guestOptions = [
+  { value: '5', label: "Bobby Smith"},
+  { value: '6', label: "Jill Smith"},
+  { value: '7', label: "Jane Smith"},
+  { value: '8', label: "Gary Smith"},
+  { value: '9', label: "Sue Smith"},
+  { value: '10', label: "Jennifer Smith"},
+  { value: '11', label: "Lucy Smith"},
+  { value: '12', label: "Austin Smith"},
+  { value: '13', label: "Benny Duff"},
+  { value: '14', label: "Hank Duff"},
+  { value: '15', label: "Brandon Campbell"},
+]
 const EventForm = () => {
   const [state, dispatch] = useGlobalState();
   let navigate = useNavigate();
@@ -25,7 +39,7 @@ const EventForm = () => {
         end_time: '',
         isPublic: '',
         status: '1',
-        // guests: null,
+        guests: [],
     });
 
     const handleChange = (e) => {
@@ -48,7 +62,7 @@ const EventForm = () => {
         eventFormData.append("end_time", formValue.end_time)
         eventFormData.append("isPublic", formValue.isPublic)
         eventFormData.append("status", formValue.status)
-        // eventFormData.append("guests", formValue.guests)
+        eventFormData.append("guests", formValue.guests)
 
 
         try {
@@ -138,6 +152,15 @@ const EventForm = () => {
         value={formValue.isPublic}
         onChange={handleChange}
       /> */}
+      <label>
+        Invite Guests:
+      </label>
+      <select multiple name='guests' onChange={handleChange}>
+        {guestOptions.map((option) => (
+          <option value={option.value}>{option.label}</option>
+        ))}
+      </select>
+
       <select  name='isPublic' onChange={handleChange}>
         {privacyOptions.map((option) => (
           <option value={option.value}>{option.label}</option>

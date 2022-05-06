@@ -16,7 +16,7 @@ const EventList = () => {
   useEffect(() => {
     async function getEvents() {
       let options = {
-        url: `${API_URL}api/events/`,
+        url: `${API_URL}api/events/?ordering=id`,
         method: "GET",
       };
       let resp = await request(options);
@@ -27,11 +27,22 @@ const EventList = () => {
 
   return (
     <>
-    <h1 className="main-title">Organizing</h1>
+    
+    {/* <h1 className="main-title">Organizing</h1> */}
+
     <div className="event-list">
       {events.map((event) => (
         <Event key={event.id} event={event} />
         ))}
+         <div>
+        <button className="add-btn">
+          <Link to="/test">
+            <Icon sx={{ fontSize: 100 }} color="primary">
+              add_circle
+            </Icon>
+          </Link>
+        </button>
+      </div>
     </div>
         </>
   );
@@ -59,7 +70,7 @@ const Event = ({ event }) => {
         status={event.status}
       />
 
-      <div>
+      {/* <div>
         <button className="add-btn">
           <Link to="/test">
             <Icon sx={{ fontSize: 100 }} color="primary">
@@ -67,7 +78,7 @@ const Event = ({ event }) => {
             </Icon>
           </Link>
         </button>
-      </div>
+      </div> */}
     </>
   );
 };
