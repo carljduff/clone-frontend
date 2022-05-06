@@ -26,11 +26,14 @@ const EventList = () => {
   }, []);
 
   return (
+    <>
+    <h1 className="main-title">Organizing</h1>
     <div className="event-list">
       {events.map((event) => (
         <Event key={event.id} event={event} />
-      ))}
+        ))}
     </div>
+        </>
   );
 };
 
@@ -39,6 +42,7 @@ const Event = ({ event }) => {
 
   return (
     <>
+    
       <EventCard event={event} setModalShow={setModalShow} />
 
       <MainEvent

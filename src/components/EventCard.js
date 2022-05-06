@@ -19,7 +19,7 @@ const EventCard = ({ event, setModalShow }) => {
             <Card.Text>
             <div className="card-info">
               <h5>{event.date}</h5>
-              <h5>{event.start_time} - {event.end_time}</h5>
+              <h5>{event.start_time}</h5>
               
             </div>
             </Card.Text>

@@ -5,6 +5,12 @@ import { useGlobalState } from '../context/GlobalState'
 import request from "../services/api.request";
 import { API_URL } from "../services/auth.constants";
 import '../css/dashboard.css'
+
+const privacyOptions = [
+  { value: true, label: "Private"},
+  { value: false, label: "Public"},
+]
+
 const EventForm = () => {
   const [state, dispatch] = useGlobalState();
   let navigate = useNavigate();
@@ -17,7 +23,7 @@ const EventForm = () => {
         date: '',
         start_time: '',
         end_time: '',
-        isPublic: false,
+        isPublic: '',
         status: '1',
         // guests: null,
     });
@@ -65,57 +71,78 @@ const EventForm = () => {
       <div className="event-list">
       
     <form className='create-event' onSubmit={handleSubmit}>
-      
+      <label>
+        Title:
+      </label>
       <input
         className='input-event-btn'
         name="title"
-        placeholder="Type Title Here"
+        // placeholder="Type Title Here"
         value={formValue.title}
         onChange={handleChange}
       />
+      <label>
+        More about your Event:
+      </label>
       <input
         className='input-event-btn'
         name="description"
-        placeholder="Tell us more"
+        // placeholder="Tell us more"
         value={formValue.description}
         onChange={handleChange}
       />
+      <label>
+        Address:
+      </label>
       <input
         className='input-event-btn'
         name="address"
-        placeholder="Where is it?"
+        // placeholder="Where is it?"
         value={formValue.address}
         onChange={handleChange}
       />
+      <label>
+        Enter the Date:
+      </label>
       <input
         className='input-event-btn'
         name="date"
-        placeholder="When is it?"
+        // placeholder="When is it?"
         value={formValue.date}
         onChange={handleChange}
       />
+      <label>
+        Enter the start time:
+      </label>
       <input
         className='input-event-btn'
         name="start_time"
-        placeholder="When does it start?"
+        // placeholder="When does it start?"
         value={formValue.start_time}
         onChange={handleChange}
       />
+      <label>
+        Enter the end time:
+      </label>
       <input
         className='input-event-btn'
         name="end_time"
-        placeholder="When does it end?"
+        // placeholder="When does it end?"
         value={formValue.end_time}
         onChange={handleChange}
       />
-      <input
+      {/* <input
         className='input-event-btn'
         name="isPublic"
-        placeholder="Private Event or Public?"
+        // placeholder="Private Event or Public?"
         value={formValue.isPublic}
         onChange={handleChange}
-      />
-      
+      /> */}
+      <select  name='isPublic' onChange={handleChange}>
+        {privacyOptions.map((option) => (
+          <option value={option.value}>{option.label}</option>
+        ))}
+      </select>
     
       
       <button

@@ -15,17 +15,10 @@ import { API_URL } from '../services/auth.constants';
 
 function MainEvent(props) {
   const [state, dispatch] = useGlobalState();
-  // const [items, setItems] = useState();
+  const [items, setItems] = useState();
   const [modalShow, setModalShow] = useState(false);
   const [modalShowEdit, setModalShowEdit] = useState(false);
   
-  // useEffect(() => {
-  //     setItems(<Items id={props.id}/>);
-  // }, [items])
-
-  useEffect(() => {
-    setItems(items)
-  }, [])
 
   const deleteHandler = async (e) => {
       try {
@@ -35,7 +28,7 @@ function MainEvent(props) {
         }
         let resp = await request(options)
         console.log('Item successfully deleted.')
-        console.log({item})
+        // console.log({item})
         props.onHide()
         window.location.reload();
 
@@ -83,7 +76,7 @@ function MainEvent(props) {
               </div>
   
               <Items id={props.id}/>
-              
+            
             {/* {items} */}
             </Card.Text>
           </Card.Body>

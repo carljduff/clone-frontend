@@ -59,13 +59,19 @@
 
 }
 
-.form-input, .input-event-btn {
+.form-input, .input-item-btn {
     border: 0;
     border-bottom: 1px solid black;
-    background-color: #E6E6E4;
+    background-color: white;
     text-align: center;
 }
 
+.input-event-btn {
+    border: 0;
+    border-bottom: 1px solid black;
+    background-color: white;
+    text-align: center;
+}
 input:focus, textarea:focus, select:focus{
     outline: none;
 }
@@ -84,19 +90,30 @@ input:focus, textarea:focus, select:focus{
     gap: 5px;
 }
 
-.create-event {
+.create-item {
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     margin: 0;
-    margin-top: 30vh;
     gap: 10px;
-    border: 1px solid black;
     max-width: 300px;
     border-radius: 20px;
+    padding: 20px;
 }
 
+.create-event {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    gap: 10px;
+    margin-left: 500px;
+    border: 1px solid black;
+    border-radius: 20px;
+    min-width: 400px;
+}
 .preview-card {
     width: 18rem;
     /* border: 1px solid black; */
@@ -143,6 +160,10 @@ input:focus, textarea:focus, select:focus{
     justify-content: center;
     align-items: center;
     gap: 5px;
+    /* background-color: white; */
+    max-width: 150px;
+    margin: auto;
+    border-radius: 20px;
 }
 
 
