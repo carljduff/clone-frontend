@@ -5,7 +5,7 @@ import "../css/dashboard.css";
 const Test = () => {
   return (
     <Dashboard>
-      <AddEvent />
+      <AddEvent  />
     </Dashboard>
   );
 };

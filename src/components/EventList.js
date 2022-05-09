@@ -11,6 +11,13 @@ import { useGlobalState } from "../context/GlobalState";
 import Items from "./Items";
 import { API_URL } from "../services/auth.constants";
 import Dashboard from "./Dashboard";
+import Form from "./Form";
+import AddItem from "./AddItem";
+import FormModal from "./FormModal";
+import Button from "react-bootstrap/Button";
+
+export const EventContext = React.createContext();
+
 const EventList = () => {
   const [events, setEvents] = useState([]);
   useEffect(() => {
@@ -27,24 +34,23 @@ const EventList = () => {
 
   return (
     <>
-    
-    {/* <h1 className="main-title">Organizing</h1> */}
+      {/* <h1 className="main-title">Organizing</h1> */}
 
-    <div className="event-list">
-      {events.map((event) => (
-        <Event key={event.id} event={event} />
+      <div className="event-list">
+        {events.map((event) => (
+          <Event key={event.id} event={event} />
         ))}
-         <div>
-        <button className="add-btn">
-          <Link to="/test">
-            <Icon sx={{ fontSize: 100 }} color="primary">
-              add_circle
-            </Icon>
-          </Link>
-        </button>
+        <div>
+          <button className="add-btn">
+            <Link to="/test">
+              <Icon sx={{ fontSize: 100 }} color="primary">
+                add_circle
+              </Icon>
+            </Link>
+          </button>
+        </div>
       </div>
-    </div>
-        </>
+    </>
   );
 };
 
@@ -53,9 +59,7 @@ const Event = ({ event }) => {
 
   return (
     <>
-    
       <EventCard event={event} setModalShow={setModalShow} />
-
       <MainEvent
         show={modalShow}
         onHide={() => setModalShow(false)}
@@ -69,17 +73,10 @@ const Event = ({ event }) => {
         private={event.isPublic}
         status={event.status}
       />
-
-      {/* <div>
-        <button className="add-btn">
-          <Link to="/test">
-            <Icon sx={{ fontSize: 100 }} color="primary">
-              add_circle
-            </Icon>
-          </Link>
-        </button>
-      </div> */}
     </>
   );
+
+  
 };
+
 export default EventList;
