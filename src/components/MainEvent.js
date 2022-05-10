@@ -12,6 +12,7 @@ import request from "../services/api.request";
 import AddItem from "./AddItem";
 import { useGlobalState } from "../context/GlobalState";
 import { API_URL } from "../services/auth.constants";
+import EditModal from "./EditModal";
 import Form from "./Form";
 function MainEvent(props) {
 
@@ -19,7 +20,12 @@ function MainEvent(props) {
   const [items, setItems] = useState();
   const [modalShow, setModalShow] = useState(false);
   const [modalShowEdit, setModalShowEdit] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
+  const modalHandler = () => {
+    setModalShow(false)
+    setModalOpen(true)
+  }
   const deleteHandler = async (e) => {
     try {
       let options = {
@@ -62,6 +68,7 @@ function MainEvent(props) {
                       </Button>
                     </div>
                     <h4> Title of Event: {props.title} </h4>
+                    {/* {console.log(`${props.data.id}`)} */}
                     <h4> Address: {props.address} </h4>
                     <h4>
                       {" "}
@@ -93,7 +100,7 @@ function MainEvent(props) {
 
             <EventChat show={modalShow} onHide={() => setModalShow(false)} />
 
-            <EditEvent
+            {/* <EditEvent
               show={modalShowEdit}
               onHide={() => setModalShowEdit(false)}
               id={props.id}
@@ -105,12 +112,23 @@ function MainEvent(props) {
               etime={props.etime}
               private={props.private}
               status={props.status}
-            />
+            /> */}
+            {modalOpen && <EditModal 
+              id={props.id}
+              title={props.title}
+              desc={props.desc}
+              address={props.address}
+              date={props.date}
+              stime={props.stime}
+              etime={props.etime}
+              privates={props.private}
+              status={props.status}
+              setOpenModal={setModalOpen} />}
           </div>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={deleteHandler}>Delete</Button>
-          <Button onClick={() => setModalShowEdit(true)}>Edit</Button>
+          <Button onClick={modalHandler}>Edit</Button>
           <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>

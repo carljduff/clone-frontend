@@ -1,11 +1,10 @@
 import './App.css';
 import Home from './pages/Home';
-import AddEvent from './components/AddEvent'
 import {Outlet} from 'react-router-dom';
-import { GlobalProvider } from './context/GlobalState'
-import React, { useState, useEffect } from 'react'
-import Form from './components/Form';
-
+import { GlobalProvider } from './context/GlobalState';
+import React from 'react';
+import './css/modal.css';
+import EditModal from './components/EditModal';
 function App() {
 
   
@@ -13,7 +12,7 @@ function App() {
   
     return(
       <GlobalProvider>
-        <Form/>
+        <EditModal/>
         <Outlet/>
       </GlobalProvider>
     )

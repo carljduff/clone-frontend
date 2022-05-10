@@ -1,12 +1,11 @@
-import React, {useState} from 'react'
-import AddEvent from '../components/AddEvent'
+import React, {useEffect, useState} from 'react'
 import AddItem from './AddItem';
+import EditEvent from './EditEvent';
 import { useGlobalState } from "../context/GlobalState";
 import { API_URL } from "../services/auth.constants";
 import request from "../services/api.request";
 
-
-const Form = () => {
+const EditForm = ({event, id, title, desc, address, date, stime, etime, privates, status}) => {
     const [state, dispatch] = useGlobalState();
     const [currentPage, setPage] = useState(1);
     const [newId, setNewId] = useState();
@@ -14,24 +13,27 @@ const Form = () => {
     const prevPage = () => setPage((prev) => --prev);
 
     const [formValue, setFormValue] = useState({
-        owner: `${state.currentUser.user_id}`,
-        title: "",
-        description: "",
-        address: "",
-        date: "",
-        start_time: "",
-        end_time: "",
-        isPublic: "",
-        status: "1",
-        img: "",
-        guests: [],
+        owner: 2,
+        title: `${title}`,
+        description: `${desc}`,
+        address: `${address}`,
+        date: `${date}`,
+        start_time: `${stime}`,
+        end_time: `${etime}`,
+        isPublic: `${privates}`,
+        status: `${status}`,
+        // guests: null,
       });
 
-    const handleSubmit = async (e) => {
+      useEffect(() => {
+          setNewId(id)
+
+      }, [])
+
+      const handleSubmit = async (e) => {
         e.preventDefault();
-        // navigate(-1)
         const eventFormData = new FormData();
-        eventFormData.append("owner", `${state.currentUser.user_id}`);
+        eventFormData.append("owner", formValue.owner);
         eventFormData.append("title", formValue.title);
         eventFormData.append("description", formValue.description);
         eventFormData.append("address", formValue.address);
@@ -40,30 +42,26 @@ const Form = () => {
         eventFormData.append("end_time", formValue.end_time);
         eventFormData.append("isPublic", formValue.isPublic);
         eventFormData.append("status", formValue.status);
-        eventFormData.append("img", formValue.img);
-        eventFormData.append("guests", formValue.guests);
+        // eventFormData.append("guests", formValue.guests)
     
         try {
           let options = {
-            method: "POST",
-            url: `${API_URL}api/events/`,
-            data: eventFormData,
+            method: "PUT",
+            url: `${API_URL}api/events/${props.id}/`,
+            data: formValue,
             headers: { "Content-Type": "multipart/form-data" },
+        
           };
-          let resp = request(options); //need await here...i think
-          resp.then( (resp) => setNewId(resp.data.id))
-          nextPage()
+          let resp = await request(options);
         } catch (error) {
           console.log(error);
-          
         }
       };
-
-    return(
+    return (
         <div>
          
             {currentPage === 1 && (
-                <AddEvent handleSubmit={handleSubmit} formValue={formValue} setFormValue={setFormValue}/>
+                <EditEvent id={id} title={title} desc={desc} address={address} date={date} stime={stime} etime={etime} privates={privates} status={status} event={event} handleSubmit={handleSubmit} formValue={formValue} setFormValue={setFormValue}/>
             )}
             {currentPage === 2 && (
                 <AddItem eventId={newId} />
@@ -84,4 +82,4 @@ const Form = () => {
     )
 }
 
-export default Form;
+export default EditForm;

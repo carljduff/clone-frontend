@@ -1,14 +1,10 @@
-import React from "react"
-import { useState, useEffect } from "react"
-import { useGlobalState } from "../context/GlobalState"
-import request from "../services/api.request"
-import Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
-import Form from "./Form"
+import React from "react";
+import "../css/modal.css";
 
-function FormModal({setOpenModal}) {
-  return (
-    <div className="modalBackground">
+
+function Modal({ setOpenModal }) {
+    return (
+      <div className="modalBackground">
         <div className="modalContainer">
           <div className="titleCloseBtn">
             <button
@@ -16,14 +12,14 @@ function FormModal({setOpenModal}) {
                 setOpenModal(false);
               }}
             >
-             X
+              X
             </button>
           </div>
-          {/* <div className="title">
-            <h1>Create</h1>
-          </div> */}
+          <div className="title">
+            <h1>Are You Sure You Want to Continue?</h1>
+          </div>
           <div className="body">
-          <Form/>
+            <p>The next page looks amazing. Hope you want to go there!</p>
           </div>
           <div className="footer">
             <button
@@ -38,7 +34,7 @@ function FormModal({setOpenModal}) {
           </div>
         </div>
       </div>
-  );
-}
-
-export default FormModal;
+    );
+  }
+  
+  export default Modal;

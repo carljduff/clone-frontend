@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 import '../css/navbar.css'
 import { EventContext } from "../components/EventList";
 const Home = () => {
-    const event = useContext(EventContext)
+    // const event = useContext(EventContext)
     // console.log(event)
     return (
      <>

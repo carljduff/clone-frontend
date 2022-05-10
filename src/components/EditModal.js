@@ -1,14 +1,8 @@
-import React from "react"
-import { useState, useEffect } from "react"
-import { useGlobalState } from "../context/GlobalState"
-import request from "../services/api.request"
-import Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
-import Form from "./Form"
+import EditForm from "./EditForm"
 
-function FormModal({setOpenModal}) {
-  return (
-    <div className="modalBackground">
+const EditModal = ({event, setOpenModal, id, title, desc, address, date, stime, etime, privates, status}) => {
+    return (
+        <div className="modalBackground">
         <div className="modalContainer">
           <div className="titleCloseBtn">
             <button
@@ -23,7 +17,7 @@ function FormModal({setOpenModal}) {
             <h1>Create</h1>
           </div> */}
           <div className="body">
-          <Form/>
+          <EditForm id={id} title={title} desc={desc} address={address} date={date} stime={stime} etime={etime} privates={privates} status={status} event={event}/>
           </div>
           <div className="footer">
             <button
@@ -41,4 +35,4 @@ function FormModal({setOpenModal}) {
   );
 }
 
-export default FormModal;
+export default EditModal

@@ -23,6 +23,8 @@ const Items = ({ eventId }) => {
     getItems();
   }, []);
 
+
+  
   return (
     <>
       <div className="items">

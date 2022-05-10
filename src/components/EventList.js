@@ -15,11 +15,13 @@ import Form from "./Form";
 import AddItem from "./AddItem";
 import FormModal from "./FormModal";
 import Button from "react-bootstrap/Button";
-
-export const EventContext = React.createContext();
+import EditModal from "./EditModal";
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [data, setData] = useState()
+
   useEffect(() => {
     async function getEvents() {
       let options = {
@@ -32,6 +34,8 @@ const EventList = () => {
     getEvents();
   }, []);
 
+
+
   return (
     <>
       {/* <h1 className="main-title">Organizing</h1> */}
@@ -41,27 +45,26 @@ const EventList = () => {
           <Event key={event.id} event={event} />
         ))}
         <div>
-          <button className="add-btn">
-            <Link to="/test">
-              <Icon sx={{ fontSize: 100 }} color="primary">
+      <button className='openModalBtn' onClick={() => {setModalOpen(true)}}><Icon sx={{ fontSize: 100 }} color="primary">
                 add_circle
-              </Icon>
-            </Link>
-          </button>
+              </Icon></button>
         </div>
       </div>
+      {modalOpen && <FormModal setOpenModal={setModalOpen} />}
     </>
   );
 };
 
 const Event = ({ event }) => {
   const [modalShow, setModalShow] = React.useState(false);
-
+  const [modalOpen, setModalOpen] = useState(false);
+ 
   return (
     <>
       <EventCard event={event} setModalShow={setModalShow} />
       <MainEvent
         show={modalShow}
+        data={event}
         onHide={() => setModalShow(false)}
         id={event.id}
         title={event.title}
@@ -73,6 +76,7 @@ const Event = ({ event }) => {
         private={event.isPublic}
         status={event.status}
       />
+      {modalOpen && <EditModal event={event}/> }
     </>
   );
 

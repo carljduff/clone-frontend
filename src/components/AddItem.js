@@ -2,8 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useGlobalState } from "../context/GlobalState";
 import request from "../services/api.request";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import { API_URL } from "../services/auth.constants";
 
 const categoryOptions = [
@@ -14,9 +12,9 @@ const categoryOptions = [
   { value: 11, label: "Essentials" },
 ];
 const AddItem = ({ eventId }) => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  
+  const [label, setLabel] = useState('')
+  const [lists, setLists] = useState([]) //list s
   const [state, dispatch] = useGlobalState();
 
   const [formValue, setFormValue] = useState({
@@ -26,11 +24,14 @@ const AddItem = ({ eventId }) => {
     user: `${state.currentUser.user_id}`,
   });
 
+  
+
   const itemHandleChange = (e) => {
     setFormValue({
       ...formValue,
       [e.target.name]: e.target.value,
     });
+    setLabel(formValue.label)
   };
 
   const itemHandleSubmit = async (e) => {
@@ -49,22 +50,19 @@ const AddItem = ({ eventId }) => {
         headers: { "Content-Type": "multipart/form-data" },
       };
       let resp = await request(options);
-      console.log(`${id}`);
+
+      setLists(lists => [...lists, label])
+
     } catch (error) {
       console.log(error);
     }
   };
 
+  const List = ({label}) => <h3>{label}</h3>
+
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        +
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>
-          {" "}
+   
           <div className="add-container">
             <form className="create-item" onSubmit={itemHandleSubmit}>
               <label>What would you like to add?</label>
@@ -82,21 +80,17 @@ const AddItem = ({ eventId }) => {
                 ))}
               </select>
 
-              <button type="submit" onClick={handleClose}>
-                Create
+              <button type="submit">
+                Add
               </button>
             </form>
+                  <div>
+            {lists.map((label, i) => (
+              <List label={label} key={label + i} />
+            ))}
+                  </div>
           </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+    
     </>
   );
 };

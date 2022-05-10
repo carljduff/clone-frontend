@@ -22,11 +22,11 @@
     border-radius: 20px;
 }
 
-.event-frame {
-    /* border: 1px solid black; */
+/* .event-frame {
+    border: 1px solid black;
     max-width: 800px;
     margin: auto;
-}
+} */
 
 .event-bottom {
     padding: 10px;
@@ -108,13 +108,13 @@ input:focus, textarea:focus, select:focus{
     justify-content: center;
     align-items: center;
     background-color: white;
-    gap: 10px;
+    gap: 5px;
     margin-top: 0 !important;
-    margin-left: 500px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 20px;
     min-width: 400px;
 }
+
 .preview-card {
     width: 18rem;
     /* border: 1px solid black; */
