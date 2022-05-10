@@ -72,9 +72,7 @@ function MainEvent(props) {
                   <div className="choose-items">
                     <h4>
                       {" "}
-                      What would you like to bring? <AddItem
-                        id={props.id}
-                      />{" "}
+                      What would you like to bring?
                       <br />
                       Please select an item.
                     </h4>

@@ -1,5 +1,6 @@
 import './App.css';
 import Home from './pages/Home';
+import AddEvent from './components/AddEvent'
 import {Outlet} from 'react-router-dom';
 import { GlobalProvider } from './context/GlobalState'
 import React, { useState, useEffect } from 'react'
@@ -12,7 +13,7 @@ function App() {
   
     return(
       <GlobalProvider>
-        <Home/>
+        <Form/>
         <Outlet/>
       </GlobalProvider>
     )

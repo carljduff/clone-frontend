@@ -25,23 +25,23 @@ const guestOptions = [
   { value: "15", label: "Brandon Campbell" },
 ];
 
-const EventForm = () => {
+const EventForm = ({handleSubmit, formValue, setFormValue}) => {
   const [state, dispatch] = useGlobalState();
   // let navigate = useNavigate();
 
-  const [formValue, setFormValue] = useState({
-    owner: `${state.currentUser.user_id}`,
-    title: "",
-    description: "",
-    address: "",
-    date: "",
-    start_time: "",
-    end_time: "",
-    isPublic: "",
-    status: "1",
-    img: "",
-    guests: [],
-  });
+  // const [formValue, setFormValue] = useState({
+  //   owner: `${state.currentUser.user_id}`,
+  //   title: "",
+  //   description: "",
+  //   address: "",
+  //   date: "",
+  //   start_time: "",
+  //   end_time: "",
+  //   isPublic: "",
+  //   status: "1",
+  //   img: "",
+  //   guests: [],
+  // });
 
   const handleChange = (e) => {
     setFormValue({
@@ -50,34 +50,35 @@ const EventForm = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // navigate(-1)
-    const eventFormData = new FormData();
-    eventFormData.append("owner", `${state.currentUser.user_id}`);
-    eventFormData.append("title", formValue.title);
-    eventFormData.append("description", formValue.description);
-    eventFormData.append("address", formValue.address);
-    eventFormData.append("date", formValue.date);
-    eventFormData.append("start_time", formValue.start_time);
-    eventFormData.append("end_time", formValue.end_time);
-    eventFormData.append("isPublic", formValue.isPublic);
-    eventFormData.append("status", formValue.status);
-    eventFormData.append("img", formValue.img);
-    eventFormData.append("guests", formValue.guests);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   // navigate(-1)
+  //   const eventFormData = new FormData();
+  //   eventFormData.append("owner", `${state.currentUser.user_id}`);
+  //   eventFormData.append("title", formValue.title);
+  //   eventFormData.append("description", formValue.description);
+  //   eventFormData.append("address", formValue.address);
+  //   eventFormData.append("date", formValue.date);
+  //   eventFormData.append("start_time", formValue.start_time);
+  //   eventFormData.append("end_time", formValue.end_time);
+  //   eventFormData.append("isPublic", formValue.isPublic);
+  //   eventFormData.append("status", formValue.status);
+  //   eventFormData.append("img", formValue.img);
+  //   eventFormData.append("guests", formValue.guests);
 
-    try {
-      let options = {
-        method: "POST",
-        url: `${API_URL}api/events/`,
-        data: eventFormData,
-        headers: { "Content-Type": "multipart/form-data" },
-      };
-      let resp = await request(options);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //   try {
+  //     let options = {
+  //       method: "POST",
+  //       url: `${API_URL}api/events/`,
+  //       data: eventFormData,
+  //       headers: { "Content-Type": "multipart/form-data" },
+  //     };
+  //     let resp = await request(options);
+  //     resp.then( (resp) => console.log(resp.data.id))
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   return (
     <div className="event-list">
       <form className="create-event" onSubmit={handleSubmit}>

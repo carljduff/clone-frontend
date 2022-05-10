@@ -13,7 +13,7 @@ const categoryOptions = [
   { value: 10, label: "Alcohol" },
   { value: 11, label: "Essentials" },
 ];
-const AddItem = ({ id }) => {
+const AddItem = ({ eventId }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -22,7 +22,7 @@ const AddItem = ({ id }) => {
   const [formValue, setFormValue] = useState({
     label: "",
     category: "",
-    event: `${id}`,
+    event: `${eventId}`,
     user: `${state.currentUser.user_id}`,
   });
 
@@ -38,7 +38,7 @@ const AddItem = ({ id }) => {
     const eventFormData = new FormData();
     eventFormData.append("label", formValue.label);
     eventFormData.append("category", formValue.category);
-    eventFormData.append("event", `${id}`);
+    eventFormData.append("event", `${eventId}`);
     eventFormData.append("user", `${state.currentUser.user_id}`);
 
     try {
