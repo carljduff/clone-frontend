@@ -7,14 +7,14 @@ import request from "../services/api.request";
 import { useGlobalState } from "../context/GlobalState";
 import { API_URL } from "../services/auth.constants";
 
-const Items = ({ eventId }) => {
+const Items = ({ id }) => {
   const [state, dispatch] = useGlobalState();
   const [items, setItems] = useState([]);
   const ENDPOINT = "items";
   useEffect(() => {
     async function getItems() {
       let options = {
-        url: `${API_URL}api/items/?event__id=${eventId}`,
+        url: `${API_URL}api/items/?event__id=${id}`,
         method: "GET",
       };
       let resp = await request(options);
@@ -58,7 +58,7 @@ const Item = ({ item }) => {
 
   return (
     <div>
-      <MainEvent items={item} />
+      {/* <MainEvent items={item} /> */}
       {item.label}
       <button className="item-btn" onClick={handleClick}>
         *Select*

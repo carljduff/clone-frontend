@@ -12,7 +12,7 @@ function App() {
   
     return(
       <GlobalProvider>
-        <EditModal/>
+        <Home/>
         <Outlet/>
       </GlobalProvider>
     )

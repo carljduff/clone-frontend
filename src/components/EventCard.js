@@ -3,13 +3,24 @@ import Button from "react-bootstrap/Button";
 import "../css/event.css";
 import "../css/dashboard.css";
 import { useGlobalState } from "../context/GlobalState";
-
-const EventCard = ({ event, setModalShow, formValue }) => {
+import { Link } from "react-router-dom";
+const EventCard = ({ event, formValue, page, setPage, remaining }) => {
   const [state, dispatch] = useGlobalState();
+
+  // const linkto = () => {
+  //   <Link to='/main'></Link>
+  // }
+  const next = () => setPage((prev) => ++prev)
+
+  const please = () => {
+    
+  }
 
   return (
     <div className="preview-container">
-      <Card className="preview-card" onClick={() => setModalShow(true)}>
+      <button>
+      <Link to='/main'>
+      <Card className="preview-card">
         <Card.Img variant="top" src=''/>
         <Card.Body>
           <div className="card-title">
@@ -29,6 +40,8 @@ const EventCard = ({ event, setModalShow, formValue }) => {
           </Card.Text>
         </Card.Body>
       </Card>
+      </Link>
+      </button>
     </div>
   );
   // }

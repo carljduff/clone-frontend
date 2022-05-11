@@ -20,8 +20,9 @@ import EditModal from "./EditModal";
 const EventList = () => {
   const [events, setEvents] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
-  const [data, setData] = useState()
-
+  // const [page, setPage] = useState(1)
+  const [one, setOne] = useState([])
+  // const [checker, setChecker] = useState(false)
   useEffect(() => {
     async function getEvents() {
       let options = {
@@ -34,23 +35,35 @@ const EventList = () => {
     getEvents();
   }, []);
 
-
+  let please = () => {
+    {events.map((event) => (
+      <Event key={event.id} event={event} />
+    ))}
+  }
+  // if(checker === true) {
+  //   return(
+      
+  //   )
+  // }
 
   return (
     <>
       {/* <h1 className="main-title">Organizing</h1> */}
-
+    {/* {page === 1 && ( */}
       <div className="event-list">
-        {events.map((event) => (
+        {please()}
+        {/* {events.map((event) => (
           <Event key={event.id} event={event} />
-        ))}
+        ))} */}
         <div>
       <button className='openModalBtn' onClick={() => {setModalOpen(true)}}><Icon sx={{ fontSize: 100 }} color="primary">
                 add_circle
               </Icon></button>
         </div>
       </div>
+    {/* // )} */}
       {modalOpen && <FormModal setOpenModal={setModalOpen} />}
+
     </>
   );
 };
@@ -58,14 +71,22 @@ const EventList = () => {
 const Event = ({ event }) => {
   const [modalShow, setModalShow] = React.useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [page, setPage] = useState(1)
+  const [visible, setVisible] = useState(false)
+
  
+
   return (
     <>
-      <EventCard event={event} setModalShow={setModalShow} />
-      <MainEvent
-        show={modalShow}
-        data={event}
-        onHide={() => setModalShow(false)}
+    
+      <EventCard page={page} setPage={setPage} event={event} setModalShow={setModalShow}/> 
+
+    
+    
+
+
+      <MainEvent 
+        
         id={event.id}
         title={event.title}
         desc={event.description}
@@ -75,8 +96,14 @@ const Event = ({ event }) => {
         etime={event.end_time}
         private={event.isPublic}
         status={event.status}
-      />
+        />
+
+        
+
+    
+   
       {modalOpen && <EditModal event={event}/> }
+  
     </>
   );
 

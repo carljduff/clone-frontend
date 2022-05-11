@@ -15,7 +15,7 @@ import { GlobalProvider } from './context/GlobalState';
 import EventList from './components/EventList'
 import Test from './components/Test'
 import MainList from './components/MainList'
-
+import MainEvent from './components/MainEvent';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <GlobalProvider>
@@ -34,6 +34,7 @@ root.render(
   <Route path='addevent' element={<AddEvent />} />
   <Route path='test' element={<Test/>} />
   <Route path='dash' element={<MainList/>} />
+  <Route path='main' element={<MainEvent/>} />
   </Routes>
   
   
