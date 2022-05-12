@@ -18,8 +18,8 @@ const EventCard = ({ event, formValue, page, setPage, remaining }) => {
 
   return (
     <div className="preview-container">
-      <button>
-      <Link to='/main'>
+      <button className="card-btn">
+      <Link to={`/main/${event.id}`}>
       <Card className="preview-card">
         <Card.Img variant="top" src=''/>
         <Card.Body>

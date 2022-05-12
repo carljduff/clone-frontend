@@ -14,6 +14,7 @@ import React, {
     currentUserToken: user ? user.access : null,
     events: savedEvents ? savedEvents : [],
 
+
   }
   
   const GlobalStateContext = createContext(initialState);

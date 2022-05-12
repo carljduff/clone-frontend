@@ -34,7 +34,7 @@ root.render(
   <Route path='addevent' element={<AddEvent />} />
   <Route path='test' element={<Test/>} />
   <Route path='dash' element={<MainList/>} />
-  <Route path='main' element={<MainEvent/>} />
+  <Route path='main/:eventId' element={<MainEvent/>} />
   </Routes>
   
   

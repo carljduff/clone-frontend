@@ -1,32 +1,48 @@
-import Modal from "react-bootstrap/Modal";
 import React from "react";
 import Button from "react-bootstrap/Button";
 import EventChat from "./EventChat";
-import Card from "react-bootstrap/Card";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../css/navbar.css";
 import "../css/event.css";
-import EditEvent from "./EditEvent";
 import Items from "./Items";
 import request from "../services/api.request";
-import AddItem from "./AddItem";
 import { useGlobalState } from "../context/GlobalState";
 import { API_URL } from "../services/auth.constants";
 import EditModal from "./EditModal";
-import Form from "./Form";
 
-function MainEvent({id, show, title, desc, address, date, stime, etime, privates, status, events}) {
-
+function MainEvent() {
+  let { eventId } = useParams();
+  let navigate = useNavigate();
+  console.log({ eventId });
   const [state, dispatch] = useGlobalState();
-  const [items, setItems] = useState();
+  let event = state.events.find((event) => event.id == eventId);
+  const { 
+    id,
+    title,
+    desc,
+    address,
+    date,
+    stime,
+    etime,
+    privates,
+    status 
+  } = event || {};
+
+  useEffect(() => {
+    if (!id) navigate("/dash");
+  }, [])
+
+
+  
   const [modalShow, setModalShow] = useState(false);
-  const [modalShowEdit, setModalShowEdit] = useState(false);
+
   const [modalOpen, setModalOpen] = useState(false);
- 
+
   const modalHandler = () => {
-    setModalShow(false)
-    setModalOpen(true)
-  }
+    setModalShow(false);
+    setModalOpen(true);
+  };
   const deleteHandler = async (e) => {
     try {
       let options = {
@@ -41,76 +57,64 @@ function MainEvent({id, show, title, desc, address, date, stime, etime, privates
     }
   };
   return (
-    
-       
-          <div className="event-frame">
-                  <div className="event-start">
-                    <div className="event-add">
-                      <Button
-                        variant="primary"
-                        onClick={() => setModalShow(true)}
-                      >
-                        +
-                      </Button>
-                    </div>
-                    <h4> Title of Event: {title} </h4>
-                    {/* {console.log(`${data.id}`)} */}
-                    <h4> Address: {address} </h4>
-                    <h4>
-                      {" "}
-                      Date/Time: {date} | {stime}
-                    </h4>
-                  </div>
-                  {/* <hr/> */}
-                  <div className="choose-items">
-                    <h4>
-                      {" "}
-                      What would you like to bring?
-                      <br />
-                      Please select an item.
-                    </h4>
-                  </div>
+    <div className="event-frame">
+      <div className="event-start">
+        <div className="event-add">
+          <Button variant="primary" onClick={() => setModalShow(true)}>
+            +
+          </Button>
+        </div>
+        <h4> Title of Event: {title} </h4>
+        {/* {console.log(`${data.id}`)} */}
+        <h4> Address: {address} </h4>
+        <h4>
+          {" "}
+          Date/Time: {date} | {stime}
+        </h4>
+      </div>
+      {/* <hr/> */}
+      <div className="choose-items">
+        <h4>
+          {" "}
+          What would you like to bring?
+          <br />
+          Please select an item.
+        </h4>
+      </div>
 
-                  <Items id={id} />
+      <Items id={id} />
 
-            <div className="event-bottom">
-              <h5 className="event-title">Event Settings</h5>
-              <a href="">RSVP Details</a> <br />
-              <a href="">Item Details</a> <br />
-              <a href="">View My Profile</a> <br />
-            </div>
+      <div className="event-bottom">
+        <h5 className="event-title">Event Settings</h5>
+        <a href="">RSVP Details</a> <br />
+        <a href="">Item Details</a> <br />
+        <a href="">View My Profile</a> <br />
+      </div>
 
-            <EventChat show={modalShow} onHide={() => setModalShow(false)} />
+      <EventChat show={modalShow} onHide={() => setModalShow(false)} />
 
-          
-            {modalOpen && <EditModal 
-              id={id}
-              title={title}
-              desc={desc}
-              address={address}
-              date={date}
-              stime={stime}
-              etime={etime}
-              privates={privates}
-              status={status}
-              setOpenModal={setModalOpen} />}
-       
-          <Button onClick={deleteHandler}>Delete</Button>
-          <Button onClick={modalHandler}>Edit</Button>
-          
-          </div>
-     
+      {modalOpen && (
+        <EditModal
+          id={id}
+          title={title}
+          desc={desc}
+          address={address}
+          date={date}
+          stime={stime}
+          etime={etime}
+          privates={privates}
+          status={status}
+          setOpenModal={setModalOpen}
+        />
+      )}
+
+      <Button onClick={deleteHandler}>Delete</Button>
+      <Button onClick={modalHandler}>Edit</Button>
+    </div>
   );
 }
 
 export default MainEvent;
-
-
-
-
-
-
-
 
 // function MainEvent(props) {
 
@@ -211,7 +215,7 @@ export default MainEvent;
 //               private={props.private}
 //               status={props.status}
 //             /> */}
-//             {modalOpen && <EditModal 
+//             {modalOpen && <EditModal
 //               id={props.id}
 //               title={props.title}
 //               desc={props.desc}
@@ -235,5 +239,3 @@ export default MainEvent;
 // }
 
 // export default MainEvent;
-
-

@@ -174,7 +174,10 @@ input:focus, textarea:focus, select:focus{
 } */
 
 
-
+.card-btn {
+    border: none;
+    background-color: #F8F6F0;
+}
 
 
 

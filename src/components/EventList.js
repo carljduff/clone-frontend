@@ -19,6 +19,7 @@ import EditModal from "./EditModal";
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
+  const [state, dispatch] = useGlobalState()
   const [modalOpen, setModalOpen] = useState(false);
   // const [page, setPage] = useState(1)
   const [one, setOne] = useState([])
@@ -31,6 +32,7 @@ const EventList = () => {
       };
       let resp = await request(options);
       setEvents(resp.data);
+      dispatch({events: resp.data})
     }
     getEvents();
   }, []);
@@ -40,21 +42,17 @@ const EventList = () => {
       <Event key={event.id} event={event} />
     ))}
   }
-  // if(checker === true) {
-  //   return(
-      
-  //   )
-  // }
+ 
 
   return (
     <>
       {/* <h1 className="main-title">Organizing</h1> */}
     {/* {page === 1 && ( */}
       <div className="event-list">
-        {please()}
-        {/* {events.map((event) => (
+        
+        {events.map((event) => (
           <Event key={event.id} event={event} />
-        ))} */}
+        ))}
         <div>
       <button className='openModalBtn' onClick={() => {setModalOpen(true)}}><Icon sx={{ fontSize: 100 }} color="primary">
                 add_circle
@@ -85,7 +83,7 @@ const Event = ({ event }) => {
     
 
 
-      <MainEvent 
+      {/* <MainEvent 
         
         id={event.id}
         title={event.title}
@@ -96,7 +94,7 @@ const Event = ({ event }) => {
         etime={event.end_time}
         private={event.isPublic}
         status={event.status}
-        />
+        /> */}
 
         
 
