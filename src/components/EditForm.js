@@ -47,7 +47,7 @@ const EditForm = ({event, id, title, desc, address, date, stime, etime, privates
         try {
           let options = {
             method: "PUT",
-            url: `${API_URL}api/events/${props.id}/`,
+            url: `${API_URL}api/events/${id}/`,
             data: formValue,
             headers: { "Content-Type": "multipart/form-data" },
         
