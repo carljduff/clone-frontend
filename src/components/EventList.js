@@ -83,23 +83,9 @@ const Event = ({ event }) => {
     
 
 
-      {/* <MainEvent 
-        
-        id={event.id}
-        title={event.title}
-        desc={event.description}
-        address={event.address}
-        date={event.date}
-        stime={event.start_time}
-        etime={event.end_time}
-        private={event.isPublic}
-        status={event.status}
-        /> */}
-
         
 
-    
-   
+  
       {modalOpen && <EditModal event={event}/> }
   
     </>

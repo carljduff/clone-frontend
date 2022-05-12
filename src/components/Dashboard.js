@@ -17,14 +17,14 @@ const Dashboard = (props) => {
   return (
     <div className="dash-container">
       <div className="dash-nav">
-        <h6 className="greeting">Hi, *first name*</h6>
+       
         <Link to="/">Home</Link>
         <a href="">Planning</a>
 
         {state.currentUser && <Link to="/profile">Profile</Link>}
         <a href="">Connections</a>
         <Link to="/">
-          <button onClick={signout}>Sign Out</button>
+          <button className='signout-btn' onClick={signout}>Sign Out</button>
         </Link>
       </div>
       {props.children}
