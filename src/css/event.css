@@ -200,10 +200,20 @@ input:focus, textarea:focus, select:focus{
 
 .card-btn {
     border: none;
-    background-color: #F8F6F0;
+    background-color: #F8F0F2;
 }
 
 
 
-
+.add-icon {
+  
+   
+    border-radius: 50%;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    border: none;
+    background-color: #F8F0F2;
+    color: pink;
+}
 
