@@ -3,16 +3,17 @@ import { useState, useEffect } from "react";
 import { useGlobalState } from "../context/GlobalState";
 import request from "../services/api.request";
 import { API_URL } from "../services/auth.constants";
-
+import '../css/modal.css'
 const categoryOptions = [
-  { value: 7, label: "Appetizers" },
-  { value: 8, label: "Entrees" },
-  { value: 9, label: "Drinks" },
-  { value: 10, label: "Alcohol" },
-  { value: 11, label: "Essentials" },
+  { value: 1, label: "Appetizers" },
+  { value: 2, label: "Entrees" },
+  { value: 3, label: "Drinks" },
+  { value: 4, label: "Alcohol" },
+  { value: 5, label: "Essentials" },
 ];
-const AddItem = ({ eventId }) => {
-  
+
+
+const AddItem = ({ eventId, setOpenModal }) => {
   const [label, setLabel] = useState('')
   const [lists, setLists] = useState([]) //list s
   const [state, dispatch] = useGlobalState();
@@ -48,6 +49,7 @@ const AddItem = ({ eventId }) => {
         url: `${API_URL}api/items/`,
         data: eventFormData,
         headers: { "Content-Type": "multipart/form-data" },
+        
       };
       let resp = await request(options);
 
@@ -79,10 +81,12 @@ const AddItem = ({ eventId }) => {
                   <option value={option.value}>{option.label}</option>
                 ))}
               </select>
+                  <div className="footer">
 
-              <button type="submit">
-                Add
+              <button className="next-btn" type="submit">
+                +
               </button>
+                  </div>
             </form>
                   <div>
             {lists.map((label, i) => (

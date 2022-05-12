@@ -7,19 +7,12 @@ const privacyOptions = [
   { value: false, label: "Public" },
 ];
 
-const guestOptions = [
-  { value: "5", label: "Bobby Smith" },
-  { value: "6", label: "Jill Smith" },
-  { value: "7", label: "Jane Smith" },
-  { value: "8", label: "Gary Smith" },
-  { value: "9", label: "Sue Smith" },
-  { value: "10", label: "Jennifer Smith" },
-  { value: "11", label: "Lucy Smith" },
-  { value: "12", label: "Austin Smith" },
-  { value: "13", label: "Benny Duff" },
-  { value: "14", label: "Hank Duff" },
-  { value: "15", label: "Brandon Campbell" },
-];
+// const guestOptions = [
+//   { value: 2, label: "Brandon Campbell" },
+//   { value: 3, label: "Hank Campbell" },
+//   { value: 4, label: "Benny Duff" },
+//   { value: 5, label: "Abbey Fugate" },
+// ];
 
 const EventForm = ({handleSubmit, formValue, setFormValue}) => {
   const [state, dispatch] = useGlobalState();
@@ -77,12 +70,12 @@ const EventForm = ({handleSubmit, formValue, setFormValue}) => {
           value={formValue.end_time}
           onChange={handleChange}
         />
-        <label>Invite Guests:</label>
+        {/* <label>Invite Guests:</label>
         <select multiple name="guests" onChange={handleChange}>
           {guestOptions.map((option) => (
             <option value={option.value}>{option.label}</option>
           ))}
-        </select>
+        </select> */}
 
         <select name="isPublic" onChange={handleChange}>
           {privacyOptions.map((option) => (

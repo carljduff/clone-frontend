@@ -54,7 +54,7 @@ const EventList = () => {
           <Event key={event.id} event={event} />
         ))}
         <div>
-      <button className='openModalBtn' onClick={() => {setModalOpen(true)}}><Icon sx={{ fontSize: 100 }} color="primary">
+      <button className='openModalBtn' onClick={() => {setModalOpen(true)}}><Icon className="add-icon" sx={{ fontSize: 100 }}>
                 add_circle
               </Icon></button>
         </div>
@@ -83,23 +83,9 @@ const Event = ({ event }) => {
     
 
 
-      {/* <MainEvent 
-        
-        id={event.id}
-        title={event.title}
-        desc={event.description}
-        address={event.address}
-        date={event.date}
-        stime={event.start_time}
-        etime={event.end_time}
-        private={event.isPublic}
-        status={event.status}
-        /> */}
-
         
 
-    
-   
+  
       {modalOpen && <EditModal event={event}/> }
   
     </>

@@ -4,9 +4,9 @@ import AddItem from './AddItem';
 import { useGlobalState } from "../context/GlobalState";
 import { API_URL } from "../services/auth.constants";
 import request from "../services/api.request";
+import '../css/modal.css'
 
-
-const Form = () => {
+const Form = ({setOpenModal}) => {
     const [state, dispatch] = useGlobalState();
     const [currentPage, setPage] = useState(1);
     const [newId, setNewId] = useState();
@@ -24,7 +24,7 @@ const Form = () => {
         isPublic: "",
         status: "1",
         img: "",
-        guests: [],
+        // guests: [],
       });
 
     const handleSubmit = async (e) => {
@@ -41,7 +41,7 @@ const Form = () => {
         eventFormData.append("isPublic", formValue.isPublic);
         eventFormData.append("status", formValue.status);
         eventFormData.append("img", formValue.img);
-        eventFormData.append("guests", formValue.guests);
+        // eventFormData.append("guests", formValue.guests);
     
         try {
           let options = {
@@ -66,17 +66,38 @@ const Form = () => {
                 <AddEvent handleSubmit={handleSubmit} formValue={formValue} setFormValue={setFormValue}/>
             )}
             {currentPage === 2 && (
-                <AddItem eventId={newId} />
+                <AddItem setOpenModal={setOpenModal} eventId={newId} />
                 
             )}
 
-            <div>
+            <div className='footer'>
             {currentPage === 2 && (
-
+            
                 <button onClick={prevPage}>Back</button>
             )}
             {currentPage === 1 && (
-              <button form='event-form' type='submit' onClick={handleSubmit}>Next</button>
+              <button form='event-form' type='submit' className='next-btn' onClick={handleSubmit}>Next</button>
+             
+            )}
+            {currentPage === 1 && (
+              <button
+              onClick={() => {
+                setOpenModal(false);
+              }}
+              id="cancelBtn"
+            >
+              Cancel
+            </button>
+            )}
+            {currentPage === 2 && (
+              <button
+              onClick={() => {
+                setOpenModal(false);
+              }}
+              id="cancelBtn"
+            >
+              Cancel
+            </button>
             )}
             </div>
 

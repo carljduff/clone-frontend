@@ -1,5 +1,6 @@
 .choose-items {
     text-align: center;
+    overflow: auto;
 }
 
 .event-title {
@@ -9,24 +10,49 @@
 .event-start {
     display: flex;
     flex-flow: column wrap;
+    align-items: flex-start;
 }
 
-.event-add {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
+.event-frame {
+    border-radius: 20px;
+    background-color: white;
+    width: 700px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 100px;
+    
 }
 
-.add-btn {
+.m-btn {
+    background-color: white;
+    color: black;
     border: 1px solid black;
     border-radius: 20px;
 }
 
-/* .event-frame {
-    border: 1px solid black;
-    max-width: 800px;
-    margin: auto;
-} */
+.m-btn:hover {
+    background-color: white;
+    color: black;
+    border-color: black;
+}
+
+
+
+.main-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.new-btn {
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+}
 
 .event-bottom {
     padding: 10px;
@@ -110,18 +136,16 @@ input:focus, textarea:focus, select:focus{
     background-color: white;
     gap: 5px;
     margin-top: 0 !important;
-    /* border: 1px solid black; */
     border-radius: 20px;
     min-width: 400px;
 }
 
 .preview-card {
     width: 18rem;
-    /* border: 1px solid black; */
     border-radius: 20px;
     background-color: #FFF3F0;
-    padding: 15px; /* JUST TO LOOK COOL */
-    border: 1px solid #eee;  /* JUST TO LOOK COOL */
+    padding: 15px; 
+    border: 1px solid #eee;  
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
     transition: all .3s ease-in-out;
     min-height: 200px;
@@ -140,16 +164,20 @@ input:focus, textarea:focus, select:focus{
     justify-content: center;
     align-items: center;
     gap: 20px;
-    /* border: 1px solid black; */
     max-width: 800px;
 }
 
 .add-container {
     display: flex;
     flex-flow: row wrap;
-    border: 1px solid black;
     justify-content: center;
     align-items: center;
+}
+
+.item-btn {
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 20px;
 }
 
 .card-title {
@@ -162,24 +190,30 @@ input:focus, textarea:focus, select:focus{
     justify-content: center;
     align-items: center;
     gap: 5px;
-    /* background-color: white; */
     max-width: 150px;
     margin: auto;
     border-radius: 20px;
 }
 
-/* .main-title {
-    border: 1px solid black;
-    max-height: 20px;
-} */
+
 
 
 .card-btn {
     border: none;
-    background-color: #F8F6F0;
+    background-color: #F8F0F2;
 }
 
 
 
-
+.add-icon {
+  
+   
+    border-radius: 50%;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    border: none;
+    background-color: #F8F0F2;
+    color: pink;
+}
 

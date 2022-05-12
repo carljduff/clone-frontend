@@ -1,4 +1,6 @@
 import EditForm from "./EditForm"
+import '../css/modal.css'
+
 
 const EditModal = ({event, setOpenModal, id, title, desc, address, date, stime, etime, privates, status}) => {
     return (
@@ -13,9 +15,8 @@ const EditModal = ({event, setOpenModal, id, title, desc, address, date, stime, 
              X
             </button>
           </div>
-          {/* <div className="title">
-            <h1>Create</h1>
-          </div> */}
+         
+         
           <div className="body">
           <EditForm id={id} title={title} desc={desc} address={address} date={date} stime={stime} etime={etime} privates={privates} status={status} event={event}/>
           </div>

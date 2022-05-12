@@ -1,16 +1,20 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { getData } from "../data";
 import "../css/items.css";
-import MainEvent from "./MainEvent";
 import request from "../services/api.request";
-import { useGlobalState } from "../context/GlobalState";
 import { API_URL } from "../services/auth.constants";
+import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
+import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
 
 const Items = ({ id }) => {
-  const [state, dispatch] = useGlobalState();
   const [items, setItems] = useState([]);
-  const ENDPOINT = "items";
+  const [itemLabel, setItemLabel] = useState([]);
+  const [list, setList] = useState([])
+  
+
+  
+
+
   useEffect(() => {
     async function getItems() {
       let options = {
@@ -19,9 +23,11 @@ const Items = ({ id }) => {
       };
       let resp = await request(options);
       setItems(resp.data);
+
     }
     getItems();
   }, []);
+
 
 
   
@@ -36,36 +42,54 @@ const Items = ({ id }) => {
   );
 };
 
+
 const Item = ({ item }) => {
+  const [check, setCheck] = useState(false);
+  const [trash, setTrash] = useState(false);
+  const [line, setLine] = useState(false);
   const handleClick = () => {
-    console.log(`Item ID: ${item.id}`);
-    console.log(`Item Label: ${item.label}`);
+    // console.log(`Item ID: ${item.id}`);
+    // console.log(`Item Label: ${item.label}`);
+    setCheck(!check);
+    setLine(!line)
   };
+
+  const trashClick = () => {
+    setTrash(!trash)
+  }
+
 
   const deleteHandler = async () => {
-    try {
-      let options = {
-        url: `${API_URL}api/items/${item.id}`,
-        method: "DELETE",
-      };
-      let resp = await request(options);
-      console.log("Item successfully deleted.");
-      window.location.reload();
-    } catch (error) {
-      alert(error);
-    }
+
+   
+      try {
+        let options = {
+          url: `${API_URL}api/items/${item.id}`,
+          method: "DELETE",
+        };
+        let resp = await request(options);
+        trashClick()
+        console.log("Item successfully deleted.");
+      } catch (error) {
+        alert(error);
+      }
+   
   };
 
+
+
   return (
-    <div>
-      {/* <MainEvent items={item} /> */}
-      {item.label}
+    <div className="item-list">
+      <h5 className={line ? 'label': null}>{item.label}
       <button className="item-btn" onClick={handleClick}>
-        *Select*
+       <CheckCircleOutlineRoundedIcon className={check ? 'check': null}/>
       </button>
       <button className="item-btn" onClick={deleteHandler}>
-        *DELETE
+        <HighlightOffRoundedIcon className={trash ? 'delete': null}/>
       </button>
+      
+      
+      </h5>
     </div>
   );
 };

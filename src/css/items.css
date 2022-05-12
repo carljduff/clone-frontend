@@ -1,7 +1,7 @@
 .items {
     display: flex;
     flex-flow: column wrap;
-    justify-content: start;
+    align-items: center;
     font-size: 20px;
 }
 
@@ -11,3 +11,22 @@
     border: none;
     background-color: white;
 }
+
+
+.item-list {
+    overflow: auto;
+}
+.check {
+    background-color: green;
+    border-radius: 50%;
+}
+
+.delete {
+    background-color: red;
+    border-radius: 50%;
+}
+
+.label {
+    text-decoration: line-through;
+}
+

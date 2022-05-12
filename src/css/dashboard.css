@@ -1,5 +1,6 @@
 .dash-container {
     display: flex;
+
 }
 
 .dash-nav {
@@ -11,15 +12,15 @@
     gap: 20px;
     min-width: 300px;
     border-radius: 20px;
-    background-color: #FDFFFC;
+    background-color: #F8F0F2;
     min-height: 100vh;
     position: fixed;
-    
+    font-family: 'Tinos', serif;
+    font-size: 25px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
-.greeting {
-    font-size: 25px;
-}
+
 
 .event-list {
     display: flex;
@@ -38,4 +39,9 @@
     right: 50px;
     border: none;
     background-color: #E6E6E4;
+}
+
+.signout-btn {
+    border-radius: 20px;
+    background-color: #F8F0F2;
 }

@@ -6,8 +6,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
+
+  
   
   .openModalBtn {
     position: fixed;
@@ -67,6 +68,18 @@
   }
   
   .modalContainer .footer button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .next-btn, #cancelBtn {
     width: 150px;
     height: 45px;
     margin: 10px;
