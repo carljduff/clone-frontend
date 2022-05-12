@@ -10,12 +10,17 @@ import { Outlet } from 'react-router-dom';
 import Dashboard from '../components/Dashboard';
 import '../css/login.css'
 import request from '../services/api.request';
+import Register from '../components/user/Register'
 
 const Login = () => {
   let navigate = useNavigate();
   const [ state, dispatch ] = useGlobalState();
+  const [currentPage, setPage] = useState(1);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const nextPage = () => setPage((prev) => ++prev);
+  const prevPage = () => setPage((prev) => --prev);
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -37,17 +42,11 @@ const Login = () => {
       });
   }
 
-    // const getEvents = async (id) => {
-    //   let options = {
-    //     url: `/api/events/?owner=${id}`,
-    //     method: 'GET',
-    //   }
-    //   let resp = await request(options)
-    //   return resp.data
-    // }
-
     return(
-      
+      <div className='main'>
+
+        {currentPage === 1 && (
+  
         <div className='login-form'>
             <Form onSubmit={handleLogin}> 
   <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -59,7 +58,7 @@ const Login = () => {
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
+    <Form.Label>Password:</Form.Label>
     <Form.Control onChange={(e) => setPassword(e.target.value)} required type="password" placeholder='Enter Password'/>
   </Form.Group>
  
@@ -67,11 +66,18 @@ const Login = () => {
   <Button className='signin-btn' variant="primary" type="submit">
     Sign In
   </Button>
-  <Button className='signup-btn' variant="primary" type="submit">
+  <Button className='signup-btn' variant="primary" onClick={nextPage}>
     Sign Up
   </Button>
   </div>
 </Form>
+        </div>
+        )}
+
+        {currentPage === 2 && (
+          <Register prevPage={prevPage}/>
+          )}
+    
         </div>
     )
 }

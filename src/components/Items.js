@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { getData } from "../data";
 import "../css/items.css";
-import MainEvent from "./MainEvent";
 import request from "../services/api.request";
-import { useGlobalState } from "../context/GlobalState";
 import { API_URL } from "../services/auth.constants";
 
 const Items = ({ id }) => {
-  const [state, dispatch] = useGlobalState();
   const [items, setItems] = useState([]);
-  const ENDPOINT = "items";
+  const [itemLabel, setItemLabel] = useState([]);
+  const [list, setList] = useState([])
+
+  
+
+
   useEffect(() => {
     async function getItems() {
       let options = {
@@ -19,9 +20,11 @@ const Items = ({ id }) => {
       };
       let resp = await request(options);
       setItems(resp.data);
+
     }
     getItems();
   }, []);
+
 
 
   
@@ -36,7 +39,10 @@ const Items = ({ id }) => {
   );
 };
 
+
 const Item = ({ item }) => {
+
+  
   const handleClick = () => {
     console.log(`Item ID: ${item.id}`);
     console.log(`Item Label: ${item.label}`);
@@ -50,7 +56,8 @@ const Item = ({ item }) => {
       };
       let resp = await request(options);
       console.log("Item successfully deleted.");
-      window.location.reload();
+     
+      // window.location.reload();
     } catch (error) {
       alert(error);
     }

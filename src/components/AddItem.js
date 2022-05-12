@@ -5,14 +5,15 @@ import request from "../services/api.request";
 import { API_URL } from "../services/auth.constants";
 
 const categoryOptions = [
-  { value: 7, label: "Appetizers" },
-  { value: 8, label: "Entrees" },
-  { value: 9, label: "Drinks" },
-  { value: 10, label: "Alcohol" },
-  { value: 11, label: "Essentials" },
+  { value: 1, label: "Appetizers" },
+  { value: 2, label: "Entrees" },
+  { value: 3, label: "Drinks" },
+  { value: 4, label: "Alcohol" },
+  { value: 5, label: "Essentials" },
 ];
+
+
 const AddItem = ({ eventId }) => {
-  
   const [label, setLabel] = useState('')
   const [lists, setLists] = useState([]) //list s
   const [state, dispatch] = useGlobalState();

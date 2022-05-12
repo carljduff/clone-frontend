@@ -24,7 +24,7 @@ const Form = () => {
         isPublic: "",
         status: "1",
         img: "",
-        guests: [],
+        // guests: [],
       });
 
     const handleSubmit = async (e) => {
@@ -41,7 +41,7 @@ const Form = () => {
         eventFormData.append("isPublic", formValue.isPublic);
         eventFormData.append("status", formValue.status);
         eventFormData.append("img", formValue.img);
-        eventFormData.append("guests", formValue.guests);
+        // eventFormData.append("guests", formValue.guests);
     
         try {
           let options = {
