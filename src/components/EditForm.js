@@ -5,7 +5,7 @@ import { useGlobalState } from "../context/GlobalState";
 import { API_URL } from "../services/auth.constants";
 import request from "../services/api.request";
 import '../css/modal.css'
-const EditForm = ({event, id, title, desc, address, date, stime, etime, privates, status, setOpenModal}) => {
+const EditForm = ({event, id, title, desc, address, date, stime, etime, isPublic, status, setOpenModal}) => {
     const [state, dispatch] = useGlobalState();
     const [currentPage, setPage] = useState(1);
     const [newId, setNewId] = useState();
@@ -20,7 +20,7 @@ const EditForm = ({event, id, title, desc, address, date, stime, etime, privates
         date: `${date}`,
         start_time: `${stime}`,
         end_time: `${etime}`,
-        isPublic: `${privates}`,
+        isPublic: `${isPublic}`,
         status: `${status}`,
         // guests: null,
       });
@@ -61,7 +61,7 @@ const EditForm = ({event, id, title, desc, address, date, stime, etime, privates
         <div>
          
             {currentPage === 1 && (
-                <EditEvent id={id} title={title} desc={desc} address={address} date={date} stime={stime} etime={etime} privates={privates} status={status} event={event} handleSubmit={handleSubmit} formValue={formValue} setFormValue={setFormValue}/>
+                <EditEvent id={id} title={title} desc={desc} address={address} date={date} stime={stime} etime={etime} isPublic={isPublic} status={status} event={event} handleSubmit={handleSubmit} formValue={formValue} setFormValue={setFormValue}/>
             )}
             {currentPage === 2 && (
                 <AddItem eventId={newId} />

@@ -13,7 +13,10 @@ const EventList = () => {
   const [events, setEvents] = useState([]);
   const [state, dispatch] = useGlobalState();
   const [modalOpen, setModalOpen] = useState(false);
-  const [one, setOne] = useState([]);
+
+
+
+
 
   useEffect(() => {
     async function getEvents() {
@@ -58,7 +61,7 @@ const Event = ({ event, events, setEvents }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [page, setPage] = useState(1);
   const [visible, setVisible] = useState(false);
-
+ 
   return (
     <>
       <EventCard
