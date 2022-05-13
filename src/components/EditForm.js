@@ -4,8 +4,8 @@ import EditEvent from './EditEvent';
 import { useGlobalState } from "../context/GlobalState";
 import { API_URL } from "../services/auth.constants";
 import request from "../services/api.request";
-
-const EditForm = ({event, id, title, desc, address, date, stime, etime, privates, status}) => {
+import '../css/modal.css'
+const EditForm = ({event, id, title, desc, address, date, stime, etime, privates, status, setOpenModal}) => {
     const [state, dispatch] = useGlobalState();
     const [currentPage, setPage] = useState(1);
     const [newId, setNewId] = useState();
@@ -43,7 +43,7 @@ const EditForm = ({event, id, title, desc, address, date, stime, etime, privates
         eventFormData.append("isPublic", formValue.isPublic);
         eventFormData.append("status", formValue.status);
         // eventFormData.append("guests", formValue.guests)
-    
+        nextPage()
         try {
           let options = {
             method: "PUT",
@@ -68,13 +68,34 @@ const EditForm = ({event, id, title, desc, address, date, stime, etime, privates
                 
             )}
 
-            <div>
+            <div className='footer'>
             {currentPage === 2 && (
 
-                <button onClick={prevPage}>Back</button>
+                <button className='back-btn' onClick={prevPage}>Back</button>
+            )}
+
+            {currentPage === 2 && (
+              <button
+              onClick={() => {
+                setOpenModal(false);
+              }}
+              id="cancelBtn"
+            >
+              Cancel
+            </button>
             )}
             {currentPage === 1 && (
-              <button form='event-form' type='submit' onClick={handleSubmit}>Next</button>
+              <button form='edit-form' type='submit' className='next-btn' onClick={handleSubmit}>Next</button>
+            )}
+            {currentPage === 1 && (
+              <button
+              onClick={() => {
+                setOpenModal(false);
+              }}
+              id="cancelBtn"
+            >
+              Cancel
+            </button>
             )}
             </div>
 

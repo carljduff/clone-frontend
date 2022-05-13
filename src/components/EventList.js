@@ -1,29 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Icon from "@mui/material/Icon";
-import { getData } from "../data";
 import "../css/event.css";
-import MainEvent from "./MainEvent";
 import EventCard from "./EventCard";
 import request from "../services/api.request";
 import { useGlobalState } from "../context/GlobalState";
-import Items from "./Items";
 import { API_URL } from "../services/auth.constants";
-import Dashboard from "./Dashboard";
-import Form from "./Form";
-import AddItem from "./AddItem";
 import FormModal from "./FormModal";
-import Button from "react-bootstrap/Button";
 import EditModal from "./EditModal";
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
-  const [state, dispatch] = useGlobalState()
+  const [state, dispatch] = useGlobalState();
   const [modalOpen, setModalOpen] = useState(false);
-  // const [page, setPage] = useState(1)
-  const [one, setOne] = useState([])
-  // const [checker, setChecker] = useState(false)
+  const [one, setOne] = useState([]);
+
   useEffect(() => {
     async function getEvents() {
       let options = {
@@ -32,66 +23,54 @@ const EventList = () => {
       };
       let resp = await request(options);
       setEvents(resp.data);
-      dispatch({events: resp.data})
+      dispatch({ events: resp.data });
     }
     getEvents();
   }, []);
 
-  let please = () => {
-    {events.map((event) => (
-      <Event key={event.id} event={event} />
-    ))}
-  }
- 
-
   return (
     <>
-      {/* <h1 className="main-title">Organizing</h1> */}
-    {/* {page === 1 && ( */}
       <div className="event-list">
-        
         {events.map((event) => (
-          <Event key={event.id} event={event} />
+          <Event events={events} setEvents={setEvents} key={event.id} event={event} />
         ))}
         <div>
-      <button className='openModalBtn' onClick={() => {setModalOpen(true)}}><Icon className="add-icon" sx={{ fontSize: 100 }}>
-                add_circle
-              </Icon></button>
+          <button
+            className="openModalBtn"
+            onClick={() => {
+              setModalOpen(true);
+            }}
+          >
+            <Icon className="add-icon" sx={{ fontSize: 100 }}>
+              add_circle
+            </Icon>
+          </button>
         </div>
       </div>
-    {/* // )} */}
-      {modalOpen && <FormModal setOpenModal={setModalOpen} />}
 
+      {modalOpen && <FormModal setOpenModal={setModalOpen} />}
     </>
   );
 };
 
-const Event = ({ event }) => {
+const Event = ({ event, events, setEvents }) => {
   const [modalShow, setModalShow] = React.useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [page, setPage] = useState(1)
-  const [visible, setVisible] = useState(false)
-
- 
+  const [page, setPage] = useState(1);
+  const [visible, setVisible] = useState(false);
 
   return (
     <>
-    
-      <EventCard page={page} setPage={setPage} event={event} setModalShow={setModalShow}/> 
+      <EventCard
+        page={page}
+        setPage={setPage}
+        event={event}
+        setModalShow={setModalShow}
+      />
 
-    
-    
-
-
-        
-
-  
-      {modalOpen && <EditModal event={event}/> }
-  
+      {modalOpen && <EditModal event={event} />}
     </>
   );
-
-  
 };
 
 export default EventList;
