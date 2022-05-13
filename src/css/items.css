@@ -7,7 +7,7 @@
 
 .item-btn {
     margin-left: 5px;
-    font-size: 20px;
+    font-size: 25px;
     border: none;
     background-color: white;
 }
@@ -17,13 +17,11 @@
     overflow: auto;
 }
 .check {
-    background-color: green;
-    border-radius: 50%;
+    color: green;
 }
 
 .delete {
-    background-color: red;
-    border-radius: 50%;
+    color: red;
 }
 
 .label {

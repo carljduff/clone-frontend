@@ -17,22 +17,14 @@ function MainEvent() {
 
   const [state, dispatch] = useGlobalState();
   let event = state.events.find((event) => event.id == eventId);
-  const { 
-    id,
-    title,
-    desc,
-    address,
-    date,
-    stime,
-    etime,
-    privates,
-    status 
-  } = event || {};
+  const { id, title, desc, address, date, stime, etime, privates, status } =
+    event || {};
+
   
 
   useEffect(() => {
     if (!id) navigate("/dash");
-  }, [])
+  }, []);
 
   const [modalShow, setModalShow] = useState(false);
 
@@ -50,48 +42,49 @@ function MainEvent() {
       };
       let resp = await request(options);
       console.log("Item successfully deleted.");
-      window.location.reload();
+      // window.location.reload();
+      navigate("/dash")
     } catch (error) {
       alert(error);
     }
   };
   return (
     <>
-    
-    <div className="event-frame">
-      <div className="event-start">
-        <h3> {title} </h3>
-        <p> {address} </p>
-        <p> {date} </p>
+      <div className="event-frame">
+        <div className="event-start">
+          <h3> {title} </h3>
+          <p> {address} </p>
+          <p> {date} </p>
+        </div>
 
+        <div className="choose-items">
+          <h4>
+            What would you like to bring?
+            <br />
+            Please select an item.
+          </h4>
+
+          <Items id={id} />
+        </div>
+
+        <div className="event-bottom">
+          <h5 className="event-title">Event Settings</h5>
+          <a href="">RSVP Details</a> <br />
+          <a href="">Item Details</a> <br />
+          <a href="">View My Profile</a> <br />
+        </div>
+
+        <EventChat show={modalShow} onHide={() => setModalShow(false)} />
+
+        <div className="main-btns">
+          <Button className="m-btn" onClick={deleteHandler}>
+            Delete
+          </Button>
+          <Button className="m-btn" onClick={modalHandler}>
+            Edit
+          </Button>
+        </div>
       </div>
-      
-      <div className="choose-items">
-        <h4>
-
-          What would you like to bring?
-          <br />
-          Please select an item.
-        </h4>
-
-      <Items id={id} />
-      </div>
-
-      <div className="event-bottom">
-        <h5 className="event-title">Event Settings</h5>
-        <a href="">RSVP Details</a> <br />
-        <a href="">Item Details</a> <br />
-        <a href="">View My Profile</a> <br />
-      </div>
-
-      <EventChat show={modalShow} onHide={() => setModalShow(false)} />
-
-  <div className="main-btns">
-      <Button className="m-btn" onClick={deleteHandler}>Delete</Button>
-      <Button className="m-btn" onClick={modalHandler}>Edit</Button>
-
-  </div>
-    </div>
       {modalOpen && (
         <EditModal
           id={id}
@@ -111,4 +104,3 @@ function MainEvent() {
 }
 
 export default MainEvent;
-

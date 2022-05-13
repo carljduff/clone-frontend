@@ -4,6 +4,8 @@ import { useGlobalState } from "../context/GlobalState";
 import request from "../services/api.request";
 import { API_URL } from "../services/auth.constants";
 import '../css/modal.css'
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+
 const categoryOptions = [
   { value: 1, label: "Appetizers" },
   { value: 2, label: "Entrees" },
@@ -83,8 +85,8 @@ const AddItem = ({ eventId, setOpenModal }) => {
               </select>
                   <div className="footer">
 
-              <button className="next-btn" type="submit">
-                +
+              <button className="item-btn" type="submit">
+                <AddCircleIcon fontSize="large"/>
               </button>
                   </div>
             </form>

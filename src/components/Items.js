@@ -35,7 +35,7 @@ const Items = ({ id }) => {
     <>
       <div className="items">
         {items.map((item) => (
-          <Item key={item.id} item={item} />
+          <Item items={items} setItems={setItems} key={item.id} item={item} />
         ))}
       </div>
     </>
@@ -43,19 +43,18 @@ const Items = ({ id }) => {
 };
 
 
-const Item = ({ item }) => {
+const Item = ({ item, items, setItems }) => {
   const [check, setCheck] = useState(false);
   const [trash, setTrash] = useState(false);
   const [line, setLine] = useState(false);
   const handleClick = () => {
-    // console.log(`Item ID: ${item.id}`);
-    // console.log(`Item Label: ${item.label}`);
     setCheck(!check);
     setLine(!line)
   };
 
   const trashClick = () => {
     setTrash(!trash)
+    setItems(items.filter((stateItem) => stateItem.id !== item.id))
   }
 
 

@@ -18,7 +18,7 @@ const EditEvent = ({event, id, title, desc, address, date, stime, etime, private
 
   return (
    
-        <form className="create-event" onSubmit={handleSubmit}>
+        <form id='edit-form' className="create-event" onSubmit={handleSubmit}>
           <input
             className="input-event-btn"
             name="title"
@@ -74,9 +74,9 @@ const EditEvent = ({event, id, title, desc, address, date, stime, etime, private
             ))}
           </select>
 
-          <button type="submit" >
+          {/* <button type="submit" >
             Submit
-          </button>
+          </button> */}
         </form>
    
   );

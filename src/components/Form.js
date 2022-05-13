@@ -73,7 +73,7 @@ const Form = ({setOpenModal}) => {
             <div className='footer'>
             {currentPage === 2 && (
             
-                <button onClick={prevPage}>Back</button>
+                <button className='back-btn' onClick={prevPage}>Back</button>
             )}
             {currentPage === 1 && (
               <button form='event-form' type='submit' className='next-btn' onClick={handleSubmit}>Next</button>
@@ -96,7 +96,7 @@ const Form = ({setOpenModal}) => {
               }}
               id="cancelBtn"
             >
-              Cancel
+              Done
             </button>
             )}
             </div>
