@@ -73,10 +73,6 @@ const EditEvent = ({event, id, title, desc, address, date, stime, etime, private
               <option value={option.value}>{option.label}</option>
             ))}
           </select>
-
-          {/* <button type="submit" >
-            Submit
-          </button> */}
         </form>
    
   );
