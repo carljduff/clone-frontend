@@ -13,8 +13,7 @@ const EventList = () => {
   const [events, setEvents] = useState([]);
   const [state, dispatch] = useGlobalState();
   const [modalOpen, setModalOpen] = useState(false);
-
-
+  const [check, setCheck] = useState()
 
 
 
@@ -30,6 +29,7 @@ const EventList = () => {
     }
     getEvents();
   }, []);
+
 
   return (
     <>
