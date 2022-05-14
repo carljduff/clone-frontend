@@ -13,6 +13,9 @@ const Form = ({setOpenModal}) => {
     const nextPage = () => setPage((prev) => ++prev);
     const prevPage = () => setPage((prev) => --prev);
 
+   
+
+   
     const [formValue, setFormValue] = useState({
         owner: `${state.currentUser.user_id}`,
         title: "",
@@ -50,8 +53,9 @@ const Form = ({setOpenModal}) => {
             data: eventFormData,
             headers: { "Content-Type": "multipart/form-data" },
           };
-          let resp = request(options); //need await here...i think
-          resp.then( (resp) => setNewId(resp.data.id))
+          let resp = await request(options); 
+          dispatch({ events: [...state.events, resp.data] });
+          setNewId(resp.data.id)
           nextPage()
         } catch (error) {
           console.log(error);
