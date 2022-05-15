@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useState, useEffect } from "react";
 import Icon from "@mui/material/Icon";
 import "../css/event.css";
@@ -10,29 +10,27 @@ import FormModal from "./FormModal";
 import EditModal from "./EditModal";
 
 const EventList = () => {
-  const [events, setEvents] = useState([]);
   const [state, dispatch] = useGlobalState();
   const [modalOpen, setModalOpen] = useState(false);
-  const [one, setOne] = useState([]);
 
   useEffect(() => {
-    async function getEvents() {
-      let options = {
-        url: `${API_URL}api/events/?ordering=id`,
-        method: "GET",
-      };
-      let resp = await request(options);
-      setEvents(resp.data);
-      dispatch({ events: resp.data });
-    }
-    getEvents();
-  }, []);
+      async function getEvents() {
+        let options = {
+          url: `${API_URL}api/events/?ordering=id`,
+          method: "GET",
+        };
+        let resp = await request(options);
+        dispatch({ events: resp.data });
+        }
+      getEvents()
+    }, []);
+    
 
   return (
     <>
       <div className="event-list">
-        {events.map((event) => (
-          <Event events={events} setEvents={setEvents} key={event.id} event={event} />
+        {state.events.map((event) => (
+          <Event key={event.id} event={event} />
         ))}
         <div>
           <button
@@ -53,11 +51,12 @@ const EventList = () => {
   );
 };
 
-const Event = ({ event, events, setEvents }) => {
+const Event = ({ event  }) => {
   const [modalShow, setModalShow] = React.useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [page, setPage] = useState(1);
   const [visible, setVisible] = useState(false);
+
 
   return (
     <>

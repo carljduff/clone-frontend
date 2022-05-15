@@ -7,7 +7,7 @@ const statusOptions = [
   { value: "3", label: "Past" },
 ];
 
-const EditEvent = ({event, id, title, desc, address, date, stime, etime, privates, status, handleSubmit, formValue, setFormValue}) => {
+const EditEvent = ({event, id, title, desc, address, date, stime, etime, isPublic, status, handleSubmit, formValue, setFormValue}) => {
   const [modalShowEdit, setModalShowEdit] = React.useState(false);
   const handleChange = (e) => {
     setFormValue({

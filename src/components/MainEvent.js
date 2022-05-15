@@ -17,10 +17,9 @@ function MainEvent() {
 
   const [state, dispatch] = useGlobalState();
   let event = state.events.find((event) => event.id == eventId);
-  const { id, title, desc, address, date, stime, etime, privates, status } =
+  const { id, title, description, address, date, start_time, end_time, isPublic, status } =
     event || {};
 
-  
 
   useEffect(() => {
     if (!id) navigate("/dash");
@@ -89,12 +88,12 @@ function MainEvent() {
         <EditModal
           id={id}
           title={title}
-          desc={desc}
+          desc={description}
           address={address}
           date={date}
-          stime={stime}
-          etime={etime}
-          privates={privates}
+          stime={start_time}
+          etime={end_time}
+          isPublic={isPublic}
           status={status}
           setOpenModal={setModalOpen}
         />
