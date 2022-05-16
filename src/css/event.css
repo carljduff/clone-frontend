@@ -327,11 +327,22 @@ input:focus, textarea:focus, select:focus{
     }
 
     .input-event-btn {
-        height: 25px;
+        height: 50px;
     }
 
     .body {
         margin-bottom: 170px;
+    }
+
+    .circle-icon {
+        font-size: 60px !important;
+    }
+
+    .item-btn {
+        margin-left: 50px;
+        font-size: 25px;
+        border: none;
+        background-color: white;
     }
 }
 

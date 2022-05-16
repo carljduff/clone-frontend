@@ -83,10 +83,10 @@ const AddItem = ({ eventId, setOpenModal }) => {
                   <option value={option.value}>{option.label}</option>
                 ))}
               </select>
-                  <div className="footer">
+                  <div className="circle-container">
 
               <button className="item-btn" type="submit">
-                <AddCircleIcon fontSize="large"/>
+                <AddCircleIcon className='circle-icon' fontSize="large"/>
               </button>
                   </div>
             </form>
