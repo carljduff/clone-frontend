@@ -30,6 +30,11 @@ const EditForm = ({event, id, title, desc, address, date, stime, etime, isPublic
 
       }, [])
 
+      
+      const doneHandler = () => {
+        setOpenModal(false);
+        window.location.reload()
+      }
       const handleSubmit = async (e) => {
         e.preventDefault();
         const eventFormData = new FormData();
@@ -76,12 +81,10 @@ const EditForm = ({event, id, title, desc, address, date, stime, etime, isPublic
 
             {currentPage === 2 && (
               <button
-              onClick={() => {
-                setOpenModal(false);
-              }}
+              onClick={doneHandler}
               id="cancelBtn"
             >
-              Cancel
+              Done
             </button>
             )}
             {currentPage === 1 && (

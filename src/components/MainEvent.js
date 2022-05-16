@@ -75,6 +75,9 @@ function MainEvent() {
         <EventChat show={modalShow} onHide={() => setModalShow(false)} />
 
         <div className="main-btns">
+        <Button className="m-btn" onClick={() => { navigate('/dash')}}>
+            Back
+          </Button>
           <Button className="m-btn" onClick={deleteHandler}>
             Delete
           </Button>

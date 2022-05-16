@@ -296,6 +296,10 @@ input:focus, textarea:focus, select:focus{
         align-items: center;
     
     }
+
+    .event-list {
+        margin-bottom: 10px;
+    }
    
     .modalContainer {
         width: 300px;
@@ -336,13 +340,20 @@ input:focus, textarea:focus, select:focus{
 
     .circle-icon {
         font-size: 60px !important;
+
+        z-index: 4000;
     }
 
     .item-btn {
-        margin-left: 50px;
+        
         font-size: 25px;
         border: none;
-        background-color: white;
     }
+
+    .input-item-btn {
+        width: 100px;
+    }
+
+    
 }
 
