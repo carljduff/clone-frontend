@@ -356,13 +356,13 @@ input:focus, textarea:focus, select:focus{
 
     .items {
         overflow-y: scroll;
-        max-height: 300px;
+        max-height: 400px;
     }
 
     .btn-item-main {
         border: none;
         background-color: white;
-
+        color: black;
     }
 }
 
