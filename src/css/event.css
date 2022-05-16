@@ -218,7 +218,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 
-@media only screen and (max-width: 320px) { 
+@media only screen and (min-width: 320px) { 
 
     .event-frame {
         border-radius: 20px;
@@ -270,7 +270,7 @@ input:focus, textarea:focus, select:focus{
 
 }
 
-@media only screen and (max-width: 400px) { 
+@media only screen and (min-width: 400px) { 
 
     .event-frame {
         border-radius: 20px;
