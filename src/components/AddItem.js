@@ -70,6 +70,9 @@ const AddItem = ({ eventId, setOpenModal }) => {
           <div className="add-container">
             <form className="create-item" onSubmit={itemHandleSubmit}>
               <label>What would you like to add?</label>
+              <button className="btn-item" type="submit">
+                WORK
+              </button>
               <input
                 className="input-item-btn"
                 name="label"
@@ -83,12 +86,10 @@ const AddItem = ({ eventId, setOpenModal }) => {
                   <option value={option.value}>{option.label}</option>
                 ))}
               </select>
-                  <div className="circle-container">
+                 
 
-              <button className="item-btn" type="submit">
-                WORK
-              </button>
-                  </div>
+            
+                  
             </form>
                   <div>
             {lists.map((label, i) => (

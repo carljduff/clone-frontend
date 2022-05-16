@@ -174,11 +174,11 @@ input:focus, textarea:focus, select:focus{
     align-items: center;
 }
 
-.item-btn {
+/* .item-btn {
     background-color: black;
     border: 2px solid black;
     border-radius: 20px;
-}
+} */
 
 .card-title {
     text-align: center;
