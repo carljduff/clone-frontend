@@ -54,12 +54,14 @@ const EventForm = ({handleSubmit, formValue, setFormValue}) => {
           className="input-event-btn"
           name="date"
           value={formValue.date}
+          placeholder="YYYY-MM-DD"
           onChange={handleChange}
         />
         <label>Enter the start time:</label>
         <input
           className="input-event-btn"
           name="start_time"
+          placeholder="HH-MM"
           value={formValue.start_time}
           onChange={handleChange}
         />
@@ -67,6 +69,7 @@ const EventForm = ({handleSubmit, formValue, setFormValue}) => {
         <input
           className="input-event-btn"
           name="end_time"
+          placeholder="HH-MM"
           value={formValue.end_time}
           onChange={handleChange}
         />
