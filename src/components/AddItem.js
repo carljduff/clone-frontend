@@ -86,7 +86,7 @@ const AddItem = ({ eventId, setOpenModal }) => {
                   <div className="circle-container">
 
               <button className="item-btn" type="submit">
-                <AddCircleIcon className='circle-icon' fontSize="large"/>
+                WORK
               </button>
                   </div>
             </form>

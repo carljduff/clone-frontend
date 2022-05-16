@@ -281,7 +281,7 @@ input:focus, textarea:focus, select:focus{
         left: 50%;
         transform: translate(-50%, -50%);
         padding: 100px;
-        
+        overflow: auto;
     }
 
     .event-start {
@@ -354,6 +354,6 @@ input:focus, textarea:focus, select:focus{
         width: 100px;
     }
 
-    
+
 }
 
