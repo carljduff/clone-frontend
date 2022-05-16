@@ -11,13 +11,12 @@ const NavBar = () => {
     <div className="nav-main">
      
       <div className="nav-text">
-      |
+      
       <a href="">Home</a>
-      |
+      
       <Link to="/about">About</Link>
-      |
-      <a href="">Blog</a>
-      |
+      
+      
       {state.currentUser && <Link to="/dash">Dashboard</Link>}
       
       {/* {state.currentUser && <Link to="/profile">Profile</Link>} */}
@@ -30,7 +29,7 @@ const NavBar = () => {
             
           </Link>
         )}
-        |
+        
         {!state.currentUser && (
           <Link to="/register">
             Sign Up

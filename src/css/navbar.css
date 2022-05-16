@@ -71,3 +71,120 @@ a {
 }
 
 
+@media only screen and (max-width: 320px) {
+    .nav-main {
+        display: flex;
+        justify-content: center;
+        background-color: #f8f0f2;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+        
+    }
+
+    .nav-text {
+      font-size: 13px;
+        display: flex;
+        flex-direction: row wrap;
+        padding-right: 5px;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .home-container {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        font-size: 10px;
+    }
+
+    .title {
+        font-size: 50px;
+        margin-top: 20px;
+        line-height: 10px;
+        font-family: 'Tinos', serif;
+    }
+    
+    .title-1 {
+        font-size: 50px;
+        margin-bottom: 30px;
+        font-family: 'Tinos', serif;
+    }
+    
+    .subtitle {
+        
+        line-height: 10px;
+        font-size: 20px;
+        font-family: 'Tinos', serif;
+    }
+
+    .home-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .girls {
+        height: 400px;
+        width: 315px;
+    }
+
+    
+}
+
+@media only screen and (max-width: 400px) {
+    .nav-main {
+        display: flex;
+        justify-content: center;
+        background-color: #f8f0f2;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+        
+    }
+
+    .nav-text {
+      font-size: 13px;
+        display: flex;
+        flex-direction: row wrap;
+        padding-right: 5px;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .home-container {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        font-size: 10px;
+    }
+
+    .title {
+        font-size: 50px;
+        margin-top: 20px;
+        line-height: 10px;
+        font-family: 'Tinos', serif;
+    }
+    
+    .title-1 {
+        font-size: 50px;
+        margin-bottom: 30px;
+        font-family: 'Tinos', serif;
+    }
+    
+    .subtitle {
+        
+        line-height: 10px;
+        font-size: 20px;
+        font-family: 'Tinos', serif;
+    }
+
+    .home-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .girls {
+        height: 400px;
+        width: 315px;
+    }
+
+    
+}

@@ -217,3 +217,106 @@ input:focus, textarea:focus, select:focus{
     color: pink;
 }
 
+
+@media only screen and (max-width: 320px) { 
+
+    .event-frame {
+        border-radius: 20px;
+        background-color: white;
+        
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 100px;
+        
+    }
+
+    .event-start {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    .event-bottom {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    
+    
+      
+    }
+   
+    .modalContainer {
+        width: 300px;
+        height: 500px;
+        border-radius: 12px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+       
+        flex-direction: column;
+        /* padding: 25px; */
+        overflow: auto;
+        position: fixed;
+       
+        right: 20px;
+      }
+
+    .create-event, .footer, .add-container {
+        margin-left: 180px;
+    }
+
+
+}
+
+@media only screen and (max-width: 400px) { 
+
+    .event-frame {
+        border-radius: 20px;
+        background-color: white;
+        
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 100px;
+        
+    }
+
+    .event-start {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    .event-bottom {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    
+    }
+   
+    .modalContainer {
+        width: 300px;
+        height: 500px;
+        border-radius: 12px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+       
+        flex-direction: column;
+        /* padding: 25px; */
+        overflow: auto;
+        position: fixed;
+       
+        right: 20px;
+        z-index: 2000;
+      }
+
+    .create-event, .footer, .add-container {
+        margin-left: 125px;
+    }
+
+
+}
