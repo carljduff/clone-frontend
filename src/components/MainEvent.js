@@ -41,7 +41,6 @@ function MainEvent() {
       };
       let resp = await request(options);
       console.log("Item successfully deleted.");
-      // window.location.reload();
       navigate("/dash")
     } catch (error) {
       alert(error);
