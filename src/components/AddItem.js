@@ -70,8 +70,8 @@ const AddItem = ({ eventId, setOpenModal }) => {
           <div className="add-container">
             <form className="create-item" onSubmit={itemHandleSubmit}>
               <label>What would you like to add?</label>
-              <button className="btn-item" type="submit">
-                WORK
+              <button className="btn-item-main" type="submit">
+              <AddCircleIcon className="btn-item" fontSize="large"/>
               </button>
               <input
                 className="input-item-btn"

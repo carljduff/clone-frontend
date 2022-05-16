@@ -281,7 +281,7 @@ input:focus, textarea:focus, select:focus{
         left: 50%;
         transform: translate(-50%, -50%);
         padding: 100px;
-        overflow: auto;
+        overflow-y: scroll;
     }
 
     .event-start {
@@ -355,5 +355,19 @@ input:focus, textarea:focus, select:focus{
     }
 
 
+    .items {
+        overflow-y: scroll;
+        max-height: 300px;
+    }
+
+    .btn-item-main {
+        border: none;
+        background-color: white;
+
+    }
+
+    .btn-item {
+        font-size: 70px !important;
+    }
 }
 
