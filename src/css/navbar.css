@@ -129,7 +129,7 @@ a {
 
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 428px) {
     .nav-main {
         display: flex;
         justify-content: center;

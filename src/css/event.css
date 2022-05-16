@@ -270,7 +270,7 @@ input:focus, textarea:focus, select:focus{
 
 }
 
-@media only screen and (max-width: 390px) { 
+@media only screen and (max-width: 428px) { 
 
     .event-frame {
         border-radius: 20px;

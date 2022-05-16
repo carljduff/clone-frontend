@@ -110,7 +110,7 @@
     }
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 428px) {
     .dash-container {
         display: flex;
     
