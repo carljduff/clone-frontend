@@ -310,14 +310,28 @@ input:focus, textarea:focus, select:focus{
         overflow: auto;
         position: fixed;
        
-        right: 20px;
-        z-index: 2000;
+        right: 50px;
+        
       }
 
     .create-event, .footer, .add-container {
-        margin-left: 125px;
+        margin-left: 50px;
     }
 
+    .create-event {
+        margin-top: 0;
+  
+    }
+    .modalBackground {
+        z-index: 2000;
+    }
 
+    .input-event-btn {
+        height: 25px;
+    }
+
+    .body {
+        margin-bottom: 170px;
+    }
 }
 
