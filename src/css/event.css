@@ -354,7 +354,6 @@ input:focus, textarea:focus, select:focus{
         width: 100px;
     }
 
-
     .items {
         overflow-y: scroll;
         max-height: 300px;
@@ -364,10 +363,6 @@ input:focus, textarea:focus, select:focus{
         border: none;
         background-color: white;
 
-    }
-
-    .btn-item {
-        font-size: 70px !important;
     }
 }
 
