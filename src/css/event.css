@@ -218,6 +218,12 @@ input:focus, textarea:focus, select:focus{
 }
 
 
+.btn-item-main {
+    border: none;
+    background-color: white;
+    color: black;
+}
+
 @media only screen and (max-width: 320px) { 
 
     .event-frame {
@@ -271,6 +277,102 @@ input:focus, textarea:focus, select:focus{
 }
 
 @media only screen and (max-width: 428px) { 
+
+    .event-frame {
+        border-radius: 20px;
+        background-color: white;
+        
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 100px;
+        overflow-y: scroll;
+    }
+
+    .event-start {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    .event-bottom {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    
+    }
+
+    .event-list {
+        margin-bottom: 10px;
+    }
+   
+    .modalContainer {
+        width: 300px;
+        height: 500px;
+        border-radius: 12px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+       
+        flex-direction: column;
+        /* padding: 25px; */
+        overflow: auto;
+        position: fixed;
+       
+        right: 50px;
+        
+      }
+
+    .create-event, .footer, .add-container {
+        margin-left: 50px;
+    }
+
+    .create-event {
+        margin-top: 0;
+  
+    }
+    .modalBackground {
+        z-index: 2000;
+    }
+
+    .input-event-btn {
+        height: 50px;
+    }
+
+    .body {
+        margin-bottom: 170px;
+    }
+
+    .circle-icon {
+        font-size: 60px !important;
+
+        z-index: 4000;
+    }
+
+    .item-btn {
+        
+        font-size: 25px;
+        border: none;
+    }
+
+    .input-item-btn {
+        width: 100px;
+    }
+
+    .items {
+        overflow-y: scroll;
+        max-height: 400px;
+    }
+
+    .btn-item-main {
+        border: none;
+        background-color: white;
+        color: black;
+    }
+}
+
+@media only screen and (max-width: 390px) { 
 
     .event-frame {
         border-radius: 20px;

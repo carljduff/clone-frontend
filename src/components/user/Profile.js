@@ -6,9 +6,9 @@ const Profile = () => {
 
   return (
     <div>
-      <h1>{state.currentUser.user_first_name}</h1>
+      <h1>The part of this website is still under construction. Please check back later!</h1>
     </div>
   )
 }
 
-export default Profile
+export default Profile;

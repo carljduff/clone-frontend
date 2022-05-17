@@ -52,3 +52,9 @@
         width: 100vw;
     }
 }
+
+@media only screen and (max-width: 390px) {
+    .login-form {
+        width: 100vw;
+    }
+}
