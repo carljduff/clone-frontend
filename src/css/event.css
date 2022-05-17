@@ -377,7 +377,6 @@ input:focus, textarea:focus, select:focus{
     .event-frame {
         border-radius: 20px;
         background-color: white;
-        
         position: fixed;
         top: 50%;
         left: 50%;
@@ -421,7 +420,7 @@ input:focus, textarea:focus, select:focus{
       }
 
     .create-event, .footer, .add-container {
-        margin-left: 50px;
+        margin-left: 100px;
     }
 
     .create-event {
@@ -467,4 +466,5 @@ input:focus, textarea:focus, select:focus{
         color: black;
     }
 }
+
 

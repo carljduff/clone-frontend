@@ -61,13 +61,13 @@ const EditEvent = ({event, id, title, desc, address, date, stime, etime, isPubli
             value={formValue.end_time}
             onChange={handleChange}
           />
-          <input
+          {/* <input
             className="input-event-btn"
             name="isPublic"
             placeholder="{isPublic}"
             value={formValue.isPublic}
             onChange={handleChange}
-          />
+          /> */}
           <select name="status" onChange={handleChange}>
             {statusOptions.map((option) => (
               <option value={option.value}>{option.label}</option>

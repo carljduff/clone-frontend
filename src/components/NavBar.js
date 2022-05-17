@@ -30,13 +30,6 @@ const NavBar = () => {
           </Link>
         )}
         
-        {!state.currentUser && (
-          <Link to="/register">
-            Sign Up
-          </Link>
-        )}
-        
-
         <Outlet />
         </div>
       
