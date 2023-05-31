@@ -5,6 +5,7 @@ import { GlobalProvider } from './context/GlobalState';
 import React from 'react';
 import './css/modal.css';
 import EditModal from './components/EditModal';
+import ProgressStep from './components/ProgressStep';
 function App() {
 
   
@@ -12,7 +13,8 @@ function App() {
   
     return(
       <GlobalProvider>
-        <Home/>
+        {/* <Home/> */}
+        <ProgressStep/>
         <Outlet/>
       </GlobalProvider>
     )

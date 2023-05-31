@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export async function getData({ENDPOINT}) {
-  let response = await axios.get(`https://8000-carljduff-clonebackend-qzjqj4zemon.ws-us43.gitpod.io/api/${ENDPOINT}/`);
+  let response = await axios.get(`http://127.0.0.1:8000/api/${ENDPOINT}/`);
   return response.data;
 }

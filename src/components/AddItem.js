@@ -7,11 +7,7 @@ import '../css/modal.css'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const categoryOptions = [
-  { value: 1, label: "Appetizers" },
-  { value: 2, label: "Entrees" },
-  { value: 3, label: "Drinks" },
-  { value: 4, label: "Alcohol" },
-  { value: 5, label: "Essentials" },
+  { value: 1, label: "Test" },
 ];
 
 
@@ -41,7 +37,7 @@ const AddItem = ({ eventId, setOpenModal }) => {
     e.preventDefault();
     const eventFormData = new FormData();
     eventFormData.append("label", formValue.label);
-    eventFormData.append("category", formValue.category);
+    eventFormData.append("category", 1);
     eventFormData.append("event", `${eventId}`);
     eventFormData.append("user", `${state.currentUser.user_id}`);
 

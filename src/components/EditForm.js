@@ -13,7 +13,7 @@ const EditForm = ({event, id, title, desc, address, date, stime, etime, isPublic
     const prevPage = () => setPage((prev) => --prev);
 
     const [formValue, setFormValue] = useState({
-        owner: 2,
+        owner: 4,
         title: `${title}`,
         description: `${desc}`,
         address: `${address}`,
@@ -69,7 +69,7 @@ const EditForm = ({event, id, title, desc, address, date, stime, etime, isPublic
                 <EditEvent id={id} title={title} desc={desc} address={address} date={date} stime={stime} etime={etime} isPublic={isPublic} status={status} event={event} handleSubmit={handleSubmit} formValue={formValue} setFormValue={setFormValue}/>
             )}
             {currentPage === 2 && (
-                <AddItem eventId={newId} />
+                <AddItem eventId={id} />
                 
             )}
 
