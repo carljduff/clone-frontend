@@ -4,20 +4,7 @@
     --line-border-fill: #3498db;
     --line-border-empty: #e0e0e0;
 }
-* {
-    /* If padding is added on an element, it doesn't affect the width of it. */
-    box-sizing: border-box;
-}
-body {
-    background-color: #f6f7fb;
-    font-family: 'Muli', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
-}
+
 
 .p-container {
     text-align: center;

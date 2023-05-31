@@ -13,8 +13,8 @@ function App() {
   
     return(
       <GlobalProvider>
-        {/* <Home/> */}
-        <ProgressStep/>
+        <Home/>
+        {/* <ProgressStep/> */}
         <Outlet/>
       </GlobalProvider>
     )

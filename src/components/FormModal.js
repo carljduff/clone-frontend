@@ -1,5 +1,6 @@
 import React from "react"
 import Form from "./Form"
+import ProgressStep from "./ProgressStep";
 
 function FormModal({setOpenModal}) {
 
@@ -17,7 +18,7 @@ function FormModal({setOpenModal}) {
             </button>
           </div>
           <div className="body">
-          <Form setOpenModal={setOpenModal} />
+          <ProgressStep />
           </div>
           
         </div>
