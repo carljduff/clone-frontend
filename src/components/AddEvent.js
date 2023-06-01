@@ -3,6 +3,8 @@ import { useGlobalState } from "../context/GlobalState";
 import "../css/dashboard.css";
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import dayjs from 'dayjs'
 
 const privacyOptions = [
   { value: true, label: "Private" },
@@ -16,7 +18,7 @@ const privacyOptions = [
 //   { value: 5, label: "Abbey Fugate" },
 // ];
 
-const EventForm = ({handleSubmit, formValue, setFormValue, dateValue, setDateValue}) => {
+const EventForm = ({handleSubmit, formValue, setFormValue, dateValue, setDateValue, startTimeValue, setStartTimeValue, endTimeValue, setEndTimeValue}) => {
   const [state, dispatch] = useGlobalState();
 
 
@@ -32,12 +34,20 @@ const EventForm = ({handleSubmit, formValue, setFormValue, dateValue, setDateVal
     const formattedDate = `${dateObj.getMonth() + 1 < 10 ? `0${dateObj.getMonth() + 1}` : dateObj.getMonth() + 1}-${dateObj.getDate() < 10 ? `0${dateObj.getDate()}` : dateObj.getDate()}-${dateObj.getFullYear()}`;
     return formattedDate;
   }
+
+  const formatTime = (time) => {
+    const timeObj = new Date(time);
+    const hours = timeObj.getHours();
+    const minutes = timeObj.getMinutes();
+    const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:00`;
+    return formattedTime;
+  }
   
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
     
   
-      <form id='event-form' className="create-event" onSubmit={handleSubmit}>
+      <form id='event-form' className="create-event">
         <label>Title:</label>
         <input
           className="input-event-btn"
@@ -59,32 +69,13 @@ const EventForm = ({handleSubmit, formValue, setFormValue, dateValue, setDateVal
           value={formValue.address}
           onChange={handleChange}
         />
-        <label>Enter the Date:</label>
         <DatePicker value={dateValue} onChange={(dateValue) => setDateValue(() => formatDate(dateValue))}/>
-        {/* <input
-          className="input-event-btn"
-          name="date"
-          value={formValue.date}
-          placeholder="YYYY-MM-DD"
-          onChange={handleChange}
-        /> */}
-        <label>Enter the start time:</label>
-        <input
-          className="input-event-btn"
-          name="start_time"
-          placeholder="HH:MM"
-          value={formValue.start_time}
-          onChange={handleChange}
-        />
+       
+        <TimePicker defaultValue={dayjs('2022-04-17T15:30')} label="Basic time picker" value={startTimeValue} onChange={(startTimeValue) => setStartTimeValue(() => formatTime(startTimeValue))} />
+      
         
-        <label>Enter the end time:</label>
-        <input
-          className="input-event-btn"
-          name="end_time"
-          placeholder="HH:MM"
-          value={formValue.end_time}
-          onChange={handleChange}
-        />
+        <TimePicker label="Basic time picker" value={endTimeValue} onChange={(endTimeValue) => setEndTimeValue(() => formatTime(endTimeValue))} />
+        
         {/* <label>Invite Guests:</label>
         <select multiple name="guests" onChange={handleChange}>
           {guestOptions.map((option) => (

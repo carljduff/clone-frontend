@@ -14,6 +14,8 @@ const ProgressStep = () => {
     const circles = [1, 2, 3, 4];
     const [state, dispatch] = useGlobalState();
     const [dateValue, setDateValue] = useState("");
+    const [startTimeValue, setStartTimeValue] = useState("");
+    const [endTimeValue, setEndTimeValue] = useState("");
     const [formValue, setFormValue] = useState({
         owner: `${state.currentUser.user_id}`,
         // owner: `${state.currentUser.user_id}`,
@@ -43,8 +45,8 @@ const ProgressStep = () => {
         eventFormData.append("address", formValue.address);
         eventFormData.append("date", dateValue);
         // eventFormData.append("date", formValue.date);
-        eventFormData.append("start_time", formValue.start_time);
-        eventFormData.append("end_time", formValue.end_time);
+        eventFormData.append("start_time", startTimeValue);
+        eventFormData.append("end_time", endTimeValue);
         eventFormData.append("isPublic", formValue.isPublic);
         eventFormData.append("status", formValue.status);
         eventFormData.append("img", formValue.img);
@@ -52,7 +54,7 @@ const ProgressStep = () => {
         // eventFormData.append("guests", formValue.guests);
         // setDateValue(dateValue.getDate() + '-' +  (dateValue.getMonth() + 1)  + '-' +  dateValue.getFullYear());
         // console.log(dateValue.getMonth())
-        console.log(dateValue);
+        console.log(startTimeValue);
     
         try {
           let options = {
@@ -99,7 +101,9 @@ const ProgressStep = () => {
                 {changeClasses()}
             </div>
 
-            <Form handleSubmit={handleSubmit} newId={newId} formValue={formValue} setFormValue={setFormValue} currentActive={currentActive} dateValue={dateValue} setDateValue={setDateValue}/>
+            <Form handleSubmit={handleSubmit} newId={newId} formValue={formValue} setFormValue={setFormValue} currentActive={currentActive} 
+            dateValue={dateValue} setDateValue={setDateValue} startTimeValue={startTimeValue} setStartTimeValue={setStartTimeValue} 
+            endTimeValue={endTimeValue} setEndTimeValue={setEndTimeValue}/>
 
             <button
                 onClick={prevButtonHandler}
