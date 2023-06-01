@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGlobalState } from "../context/GlobalState";
 import "../css/dashboard.css";
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 const privacyOptions = [
   { value: true, label: "Private" },
@@ -14,7 +16,7 @@ const privacyOptions = [
 //   { value: 5, label: "Abbey Fugate" },
 // ];
 
-const EventForm = ({handleSubmit, formValue, setFormValue}) => {
+const EventForm = ({handleSubmit, formValue, setFormValue, dateValue, setDateValue}) => {
   const [state, dispatch] = useGlobalState();
 
 
@@ -25,8 +27,16 @@ const EventForm = ({handleSubmit, formValue, setFormValue}) => {
     });
   };
 
+  const formatDate = (date) => {
+    const dateObj = new Date(date);
+    const formattedDate = `${dateObj.getMonth() + 1 < 10 ? `0${dateObj.getMonth() + 1}` : dateObj.getMonth() + 1}-${dateObj.getDate() < 10 ? `0${dateObj.getDate()}` : dateObj.getDate()}-${dateObj.getFullYear()}`;
+    return formattedDate;
+  }
+  
   return (
-   
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+    
+  
       <form id='event-form' className="create-event" onSubmit={handleSubmit}>
         <label>Title:</label>
         <input
@@ -50,13 +60,14 @@ const EventForm = ({handleSubmit, formValue, setFormValue}) => {
           onChange={handleChange}
         />
         <label>Enter the Date:</label>
-        <input
+        <DatePicker value={dateValue} onChange={(dateValue) => setDateValue(() => formatDate(dateValue))}/>
+        {/* <input
           className="input-event-btn"
           name="date"
           value={formValue.date}
           placeholder="YYYY-MM-DD"
           onChange={handleChange}
-        />
+        /> */}
         <label>Enter the start time:</label>
         <input
           className="input-event-btn"
@@ -65,6 +76,7 @@ const EventForm = ({handleSubmit, formValue, setFormValue}) => {
           value={formValue.start_time}
           onChange={handleChange}
         />
+        
         <label>Enter the end time:</label>
         <input
           className="input-event-btn"
@@ -81,13 +93,13 @@ const EventForm = ({handleSubmit, formValue, setFormValue}) => {
         </select> */}
 
         <select name="isPublic" onChange={handleChange}>
-          {privacyOptions.map((option) => (
-            <option value={option.value}>{option.label}</option>
+          {privacyOptions.map((option, index) => (
+            <option key={index} value={option.value}>{option.label}</option>
           ))}
         </select>
 
-        {/* <button type="submit">Create</button> */}
       </form>
+      </LocalizationProvider>
   
   );
 };

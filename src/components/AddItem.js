@@ -76,8 +76,8 @@ const AddItem = ({ eventId, setOpenModal }) => {
               <label>Choose a Category:</label>
 
               <select name="category" onChange={itemHandleChange}>
-                {categoryOptions.map((option) => (
-                  <option value={option.value}>{option.label}</option>
+                {categoryOptions.map((option, index) => (
+                  <option key={index} value={option.value}>{option.label}</option>
                 ))}
               </select>
                  

@@ -6,11 +6,14 @@ import Form from "./Form";
 import { useGlobalState } from "../context/GlobalState";
 import { API_URL } from "../services/auth.constants";
 import request from "../services/api.request";
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 const ProgressStep = () => {
     const [currentActive, setCurrentActive] = useState(0);
     const circles = [1, 2, 3, 4];
     const [state, dispatch] = useGlobalState();
+    const [dateValue, setDateValue] = useState("");
     const [formValue, setFormValue] = useState({
         owner: `${state.currentUser.user_id}`,
         // owner: `${state.currentUser.user_id}`,
@@ -27,22 +30,29 @@ const ProgressStep = () => {
       });
       const [newId, setNewId] = useState();
       
-
-    const handleSubmit = async () => {
+      const handleSubmit = async () => {
+        // const finalDate = dateValue.getDate() + '-' +  (dateValue.getMonth() + 1)  + '-' +  dateValue.getFullYear();
+        // console.log(finalDate)
         // e.preventDefault();
+        // console.log(dateValue)
         // navigate(-1)
         const eventFormData = new FormData();
         eventFormData.append("owner", `${state.currentUser.user_id}`);
         eventFormData.append("title", formValue.title);
         eventFormData.append("description", formValue.description);
         eventFormData.append("address", formValue.address);
-        eventFormData.append("date", formValue.date);
+        eventFormData.append("date", dateValue);
+        // eventFormData.append("date", formValue.date);
         eventFormData.append("start_time", formValue.start_time);
         eventFormData.append("end_time", formValue.end_time);
         eventFormData.append("isPublic", formValue.isPublic);
         eventFormData.append("status", formValue.status);
         eventFormData.append("img", formValue.img);
+        // console.log(dateValue.$D)
         // eventFormData.append("guests", formValue.guests);
+        // setDateValue(dateValue.getDate() + '-' +  (dateValue.getMonth() + 1)  + '-' +  dateValue.getFullYear());
+        // console.log(dateValue.getMonth())
+        console.log(dateValue);
     
         try {
           let options = {
@@ -74,7 +84,8 @@ const ProgressStep = () => {
 
     const nextButtonHandler = () => {
         setCurrentActive(prevActive => (prevActive + 1) % circles.length);
-        handleSubmit();
+        handleSubmit()
+       
     };
 
     const prevButtonHandler = () => {
@@ -88,7 +99,7 @@ const ProgressStep = () => {
                 {changeClasses()}
             </div>
 
-            <Form handleSubmit={handleSubmit} newId={newId} formValue={formValue} setFormValue={setFormValue} currentActive={currentActive}/>
+            <Form handleSubmit={handleSubmit} newId={newId} formValue={formValue} setFormValue={setFormValue} currentActive={currentActive} dateValue={dateValue} setDateValue={setDateValue}/>
 
             <button
                 onClick={prevButtonHandler}
