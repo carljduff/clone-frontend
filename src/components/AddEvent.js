@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useGlobalState } from "../context/GlobalState";
+import React from "react";
 import "../css/dashboard.css";
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
@@ -19,7 +18,6 @@ const privacyOptions = [
 // ];
 
 const EventForm = ({handleSubmit, formValue, setFormValue, dateValue, setDateValue, startTimeValue, setStartTimeValue, endTimeValue, setEndTimeValue}) => {
-  const [state, dispatch] = useGlobalState();
 
 
   const handleChange = (e) => {

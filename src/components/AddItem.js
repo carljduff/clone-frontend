@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useGlobalState } from "../context/GlobalState";
 import request from "../services/api.request";
 import { API_URL } from "../services/auth.constants";
@@ -14,7 +14,7 @@ const categoryOptions = [
 const AddItem = ({ eventId, setOpenModal }) => {
   const [label, setLabel] = useState('')
   const [lists, setLists] = useState([]) //list s
-  const [state, dispatch] = useGlobalState();
+  const [state] = useGlobalState();
 
   const [formValue, setFormValue] = useState({
     label: "",
@@ -49,7 +49,8 @@ const AddItem = ({ eventId, setOpenModal }) => {
         headers: { "Content-Type": "multipart/form-data" },
         
       };
-      let resp = await request(options);
+      // let resp = await request(options);
+      await request(options);
 
       setLists(lists => [...lists, label])
 

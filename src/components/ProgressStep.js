@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import "../css/progress.css";
-import EditEvent from "./EditEvent";
-import EditForm from "./EditForm";
 import Form from "./Form";
 import { useGlobalState } from "../context/GlobalState";
 import { API_URL } from "../services/auth.constants";
 import request from "../services/api.request";
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+
 
 const ProgressStep = () => {
     const [currentActive, setCurrentActive] = useState(0);
